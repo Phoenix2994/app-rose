@@ -18,10 +18,11 @@
   [scrollEvents]="true"
 >
   <div>
-    <ion-card>
+    <ion-card justify-content-center align-items-center>
       <img src="{{player?.img}}" alt="" />
-      <ion-grid>
-        <!--
+      <div style="height: 181px; display: flex">
+        <ion-grid style="margin: auto">
+          <!--
         <ion-row>
           <ion-col>
             <strong> Nome </strong>
@@ -33,36 +34,39 @@
             <strong> Squadra </strong>
           </ion-col>
           <ion-col> {{player?.team}} </ion-col>
-        </ion-row>-->
-        <ion-row>
-          <ion-col>
-            <strong> Ruolo </strong>
-          </ion-col>
-          <ion-col> {{player?.roleDetail | role}} </ion-col>
         </ion-row>
         <ion-row>
-          <!--
+          <strong> Ruolo: </strong>
+          {{player?.roleDetail | role}} </ion-row
+        ><ion-row>
           <ion-col>
             <ion-row><p class="p-fg">{{player?.nationality }}</p></ion-row>
             <ion-row> <strong class="b-fg"> Nazionalità </strong></ion-row>
           </ion-col>-->
-          <ion-col>
-            <ion-row><p class="p-fg">{{player?.age }}</p></ion-row>
-            <ion-row> <strong class="b-fg"> Età </strong></ion-row>
-          </ion-col>
-          <ion-col>
-            <ion-row><p class="p-fg">{{player?.mainFoot | foot}}</p></ion-row>
-            <ion-row> <strong class="b-fg"> Piede </strong></ion-row>
-          </ion-col>
-          <ion-col>
-            <ion-row><p class="p-fg">{{player?.height }}</p></ion-row>
-            <ion-row> <strong class="b-fg"> Altezza </strong></ion-row>
-          </ion-col>
-        </ion-row></ion-grid
-      ></ion-card
+          <ion-row>
+            <ion-col>
+              <ion-row><p class="p-fg">{{player?.role }}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Ruolo </strong></ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row><p class="p-fg">{{player?.age }}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Età </strong></ion-row>
+            </ion-col> </ion-row
+          ><ion-row>
+            <ion-col>
+              <ion-row><p class="p-fg">{{player?.mainFoot | foot}}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Piede </strong></ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row><p class="p-fg">{{player?.height }}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Altezza </strong></ion-row>
+            </ion-col>
+          </ion-row></ion-grid
+        >
+      </div></ion-card
     ><ion-card
-      ><ion-grid
-        ><ion-row>
+      ><ion-grid>
+        <!--<ion-row>
           <ion-col>
             <ion-row
               ><p class="p-fg">{{player?.value | currency:'EUR'}}</p></ion-row
@@ -122,68 +126,61 @@
             >
           </ion-col>
         </ion-row>
-
-        <!--
-      <ion-row>
-        <ion-col>
-          <strong> Ruolo </strong>
-        </ion-col>
-        <ion-col> {{player?.roleDetail}} </ion-col>
-      </ion-row>
+      -->
         <ion-row>
-          <ion-col>
+          <ion-col size="7">
             <strong> Valore </strong>
           </ion-col>
           <ion-col> {{player?.value | currency:'EUR'}} </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col size="7">
             <strong> Valore iniziale </strong>
           </ion-col>
           <ion-col> {{player?.originValue | currency:'EUR'}} </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
-            <strong> Costo acquisto/rinnovo </strong>
+          <ion-col size="7">
+            <strong> Costo acq./rinnovo </strong>
           </ion-col>
           <ion-col> {{player?.paymentValue | currency:'EUR'}} </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col size="7">
             <strong> Tipologia contratto </strong>
           </ion-col>
-          <ion-col> {{player?.contractType}} </ion-col>
+          <ion-col> {{player?.contractType | contract}} </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col size="7">
             <strong> Prossimo rinnovo </strong>
           </ion-col>
           <ion-col> {{player?.nextContractRenewal *100 | round }}%</ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col size="7">
             <strong> Prossima spesa rinnovo </strong>
           </ion-col>
           <ion-col> {{player?.nextPaymentValue | currency:'EUR'}} </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col size="7">
             <strong> Quotazione </strong>
           </ion-col>
           <ion-col> {{player?.quot}} </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col size="7">
             <strong> Quotazione iniziale </strong>
           </ion-col>
           <ion-col> {{player?.originQuot}} </ion-col>
-        </ion-row>-->
+        </ion-row>
       </ion-grid>
     </ion-card>
     <ion-card>
       <ion-grid>
         <ion-row>
-          <ion-col style="padding-top: 15px">
+          <ion-col style="padding-top: 1em">
             <ion-label>
               <strong>Statistiche</strong>
             </ion-label>
@@ -204,12 +201,55 @@
           </ion-col>
         </ion-row>
         <div *ngIf="stats">
-          <ion-row>
-            <ion-col>
+          <ion-row style="padding-bottom: 1em">
+            <ion-col size="7">
               <strong> Squadra </strong>
             </ion-col>
             <ion-col> {{stats?.team}} </ion-col>
           </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-row><p class="p-fg">{{stats?.pg }}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Partite </strong></ion-row>
+            </ion-col>
+            <ion-col *ngIf="!(player?.roleDetail)?.includes('porta')">
+              <ion-row><p class="p-fg">{{stats?.gf }}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Goal </strong></ion-row>
+            </ion-col>
+            <ion-col *ngIf="!(player?.roleDetail)?.includes('porta')">
+              <ion-row><p class="p-fg">{{stats?.ass}}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Assist </strong></ion-row>
+            </ion-col>
+            <ion-col *ngIf="(player?.roleDetail)?.includes('porta')">
+              <ion-row><p class="p-fg">{{stats?.gs }}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Goal subiti </strong></ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row><p class="p-fg">{{stats?.amm }}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Ammonizioni </strong></ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row><p class="p-fg">{{stats?.esp}}</p></ion-row>
+              <ion-row> <strong class="b-fg"> Espulsioni </strong></ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row
+                ><p class="p-fg">
+                  {{stats?.mv | round}} ({{stats?.mvt * 100| round}}%)
+                </p></ion-row
+              >
+              <ion-row> <strong class="b-fg"> MV </strong></ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row
+                ><p class="p-fg">
+                  {{stats?.mf | round}} ({{stats?.mft * 100| round}}%)
+                </p></ion-row
+              >
+              <ion-row> <strong class="b-fg"> MFV </strong></ion-row>
+            </ion-col>
+          </ion-row>
+          <!--
           <ion-row>
             <ion-col>
               <strong> Partite giocate </strong>
@@ -275,7 +315,7 @@
               <strong> Percentile FantaMediavoto </strong>
             </ion-col>
             <ion-col> {{stats?.mft * 100 | round}}%</ion-col>
-          </ion-row>
+          </ion-row>-->
         </div>
       </ion-grid>
     </ion-card>
