@@ -1,18 +1,23 @@
-mat-list-item {
-  margin: 20px 0;
-  .cnt {
-    border: 1px solid grey;
-    background-color: beige;
-    color: black;
-    width: 100%;
-    padding: 0;
-    img {
-      height: 30px;
-      margin: auto 10px;
-      border-radius: 50%;
-    }
-    p {
-      color: #000;
+.cnt-home {
+  --background: none;
+  background-color: #f2f2f2;
+
+  mat-list-item {
+    margin: 20px 0;
+    .cnt {
+      border: 1px solid grey;
+      background-color: white;
+      color: black;
+      width: 100%;
+      padding: 0;
+      img {
+        height: 30px;
+        margin: auto 10px;
+        border-radius: 50%;
+      }
+      p {
+        color: #000;
+      }
     }
   }
 }

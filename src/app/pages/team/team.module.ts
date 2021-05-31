@@ -17,6 +17,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 registerLocaleData(localeFr, 'de');
 
@@ -41,6 +42,7 @@ const MAT_MODULES = [
     IonicModule,
     ExploreContainerComponentModule,
     TeamPageRoutingModule,
+    SharedModule,
     ...MAT_MODULES,
   ],
   declarations: [TeamPage],

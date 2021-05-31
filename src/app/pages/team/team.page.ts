@@ -27,8 +27,8 @@ export class TeamPage implements OnInit {
     });
   }
 
-  changeTeam() {
-    this.dataLoader.$teamId.next(this.teamId);
+  changeTeam(event) {
+    this.dataLoader.$teamId.next(event.detail.value);
   }
   computeRoleColor(role: string) {
     switch (role) {

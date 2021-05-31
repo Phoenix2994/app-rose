@@ -11,6 +11,10 @@ import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { RoundPipe } from './pipes/round.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { FootPipe } from './pipes/foot.pipe';
+import { ContractPipe } from './pipes/contract.pipe';
+import { RolePipe } from './pipes/role.pipe';
 
 registerLocaleData(localeFr, 'de');
 
@@ -21,7 +25,13 @@ registerLocaleData(localeFr, 'de');
       useValue: 'de', // 'de-DE' for Germany, 'fr-FR' for France ...
     },
   ],
-  imports: [CommonModule, FormsModule, IonicModule, PlayerPageRoutingModule],
-  declarations: [PlayerPage, RoundPipe],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    PlayerPageRoutingModule,
+    SharedModule,
+  ],
+  declarations: [PlayerPage, RoundPipe, FootPipe, ContractPipe, RolePipe],
 })
 export class PlayerPageModule {}
