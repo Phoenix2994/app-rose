@@ -3,6 +3,7 @@ import { Stats } from './stats';
 export interface Player {
   playerId: number;
   name: string;
+  age: number;
   paymentValue: number;
   contractType: string;
   nextContractRenewal: number;

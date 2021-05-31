@@ -149,19 +149,19 @@
             </ion-col>
             <ion-col> {{stats?.pg}} </ion-col>
           </ion-row>
-          <ion-row *ngIf="!(player?.r)?.includes('porta')">
+          <ion-row *ngIf="!(player?.roleDetail)?.includes('porta')">
             <ion-col>
               <strong> Gol </strong>
             </ion-col>
             <ion-col> {{stats?.gf}} </ion-col>
           </ion-row>
-          <ion-row *ngIf="!(player?.r)?.includes('porta')">
+          <ion-row *ngIf="!(player?.roleDetail)?.includes('porta')">
             <ion-col>
               <strong> Assist </strong>
             </ion-col>
             <ion-col> {{stats?.ass}} </ion-col>
           </ion-row>
-          <ion-row *ngIf="(player?.r)?.includes('porta')">
+          <ion-row *ngIf="(player?.roleDetail)?.includes('porta')">
             <ion-col>
               <strong> Gol subiti </strong>
             </ion-col>
