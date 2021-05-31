@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-select
+      style="width: 100%; font-weight: bold; font-size: larger"
+      (ionChange)="changeTeam($event)"
+      value="{{teamId}}"
+      required
+    >
+      <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
+        <b>{{team.name}}</b>
+      </ion-select-option>
+    </ion-select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <table mat-table [dataSource]="players" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>Ruolo</th>
+      <td mat-cell *matCellDef="let element">
+        <b
+          [ngStyle]="{'background-color': computeRoleColor(element.role)}"
+          class="role"
+          >{{element.role}}</b
+        >
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="team">
+      <th mat-header-cell *matHeaderCellDef>Squadra</th>
+      <td style="text-decoration: underline" mat-cell *matCellDef="let element">
+        {{element.team}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quot">
+      <th class="align-right" mat-header-cell *matHeaderCellDef>Quot</th>
+      <td class="align-right" mat-cell *matCellDef="let element">
+        {{element.quot}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="value">
+      <th class="align-right" mat-header-cell *matHeaderCellDef>Valore</th>
+      <td class="align-right" mat-cell *matCellDef="let element">
+        {{element.value | currency:'EUR'}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      (click)="navigateToPlayer(row.playerId)"
+      mat-row
+      *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+</ion-content>

@@ -1,0 +1,31 @@
+img {
+  float: left;
+}
+
+ion-card {
+  background-color: #424242;
+  color: white;
+}
+
+.goalKeeperBackG {
+  --background: none;
+  background-color: #f8ab29;
+}
+
+.defenderBackG {
+  --background: none;
+
+  background-color: #63c623;
+}
+
+.midfielderBackG {
+  --background: none;
+
+  background-color: #2e6be6;
+}
+
+.attackBackG {
+  --background: none;
+
+  background-color: #f21a3c;
+}
