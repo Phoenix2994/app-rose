@@ -45,7 +45,11 @@
           </ion-col>-->
           <ion-row>
             <ion-col>
-              <ion-row><p class="p-fg">{{player?.role }}</p></ion-row>
+              <ion-row
+                ><p class="p-fg">
+                  {{player?.role ? player?.role : 'ND'}}
+                </p></ion-row
+              >
               <ion-row> <strong class="b-fg"> Ruolo </strong></ion-row>
             </ion-col>
             <ion-col>
