@@ -15,6 +15,9 @@ export class FreePage implements OnInit {
   displayedColumns: string[] = ['role', 'name', 'team', 'quot'];
   teams: Team[];
 
+  roleToFilter: string;
+  nameToFilter: string = '';
+
   constructor(private dataLoader: DataLoaderService, private router: Router) {}
 
   ngOnInit() {
@@ -39,5 +42,20 @@ export class FreePage implements OnInit {
         id,
       },
     });
+  }
+
+  filter() {
+    this.players = [...this.dataLoader.getFreePlayers()].filter(
+      (player: Player) => {
+        return (
+          (this.roleToFilter ? player.role === this.roleToFilter : true) &&
+          (this.nameToFilter
+            ? player.name
+                .toLowerCase()
+                .includes(this.nameToFilter.toLowerCase())
+            : true)
+        );
+      }
+    );
   }
 }

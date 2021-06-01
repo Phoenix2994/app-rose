@@ -5,12 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ContractPipe implements PipeTransform {
   transform(value: string, ...args: unknown[]): unknown {
-    if (value === 'TITOLO DEFINITIVO') {
+    if (value === 'DEFINITIVO') {
       return 'DEF';
     } else if (value === 'PRESTITO (OBBLIGO)') {
-      return 'PREST. (OBB)';
+      return 'PREST. (OBBLIGO)';
     } else if (value === 'PRESTITO (DIRITTO)') {
-      return 'PREST. (DIR)';
+      return 'PREST. (DIRITTO)';
     } else if (value === 'PRESTITO') {
       return 'PREST.';
     } else {

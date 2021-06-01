@@ -5,6 +5,46 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-select
+            [(ngModel)]="roleToFilter"
+            (ionChange)="filter()"
+            placeholder="Ruolo"
+          >
+            <ion-select-option value="">
+              <b class="role" style="background-color: #f8ab29"
+                >Tutti i ruoli</b
+              >
+            </ion-select-option>
+            <ion-select-option value="P">
+              <b class="role" style="background-color: #f8ab29">Portiere</b>
+            </ion-select-option>
+            <ion-select-option value="D">
+              <b class="role" style="background-color: #63c623">Difensore</b>
+            </ion-select-option>
+            <ion-select-option value="C">
+              <b class="role" style="background-color: #2e6be6"
+                >Centrocampista</b
+              >
+            </ion-select-option>
+            <ion-select-option value="A">
+              <b class="role" style="background-color: #f21a3c">Attaccante</b>
+            </ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col>
+          <ion-input
+            (ionChange)="filter()"
+            [(ngModel)]="nameToFilter"
+            placeholder="Nome"
+          ></ion-input
+        ></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
   <table mat-table [dataSource]="players" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
