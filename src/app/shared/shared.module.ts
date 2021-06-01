@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { ShortTeamPipe } from './pipes/short-team.pipe';
 import { FormatNamePipe } from './pipes/format-name.pipe';
 
 registerLocaleData(localeFr, 'de');
@@ -19,7 +20,7 @@ registerLocaleData(localeFr, 'de');
     },
   ],
   imports: [CommonModule, FormsModule, IonicModule],
-  exports: [FormatNamePipe],
-  declarations: [FormatNamePipe],
+  exports: [FormatNamePipe, ShortTeamPipe],
+  declarations: [FormatNamePipe, ShortTeamPipe],
 })
 export class SharedModule {}

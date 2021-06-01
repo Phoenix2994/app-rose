@@ -1,15 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-select
-      style="width: 100%; font-weight: bold; font-size: larger"
-      (ionChange)="changeTeam($event)"
-      value="{{teamId}}"
-      required
-    >
-      <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
-        <b>{{team.name}}</b>
-      </ion-select-option>
-    </ion-select>
+    <ion-title> Svincolati </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -45,13 +36,6 @@
       <th class="align-right" mat-header-cell *matHeaderCellDef>Quot</th>
       <td class="align-right" mat-cell *matCellDef="let element">
         {{element.quot}}
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="value">
-      <th class="align-right" mat-header-cell *matHeaderCellDef>Valore</th>
-      <td class="align-right" mat-cell *matCellDef="let element">
-        {{element.value | currency:'EUR'}}
       </td>
     </ng-container>
 

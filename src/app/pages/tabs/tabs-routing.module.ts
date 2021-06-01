@@ -28,6 +28,11 @@ const routes: Routes = [
           import('../player/player.module').then((m) => m.PlayerPageModule),
       },
       {
+        path: 'free',
+        loadChildren: () =>
+          import('../free/free.module').then((m) => m.FreePageModule),
+      },
+      {
         path: '',
         redirectTo: '/tabs/balance',
         pathMatch: 'full',

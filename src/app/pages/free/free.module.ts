@@ -10,9 +10,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 
-import { YouthPageRoutingModule } from './youth-routing.module';
+import { FreePageRoutingModule } from './free-routing.module';
 
-import { YouthPage } from './youth.page';
+import { FreePage } from './free.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
@@ -41,10 +41,10 @@ const MAT_MODULES = [
     FormsModule,
     IonicModule,
     ExploreContainerComponentModule,
-    YouthPageRoutingModule,
+    FreePageRoutingModule,
     SharedModule,
     ...MAT_MODULES,
   ],
-  declarations: [YouthPage],
+  declarations: [FreePage],
 })
-export class YouthPageModule {}
+export class FreePageModule {}

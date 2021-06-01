@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlayerPage } from '../player/player.page';
 
-import { YouthPage } from './youth.page';
+import { FreePage } from './free.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: YouthPage,
+    component: FreePage,
   },
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class YouthPageRoutingModule {}
+export class FreePageRoutingModule {}

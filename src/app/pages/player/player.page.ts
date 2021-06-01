@@ -24,29 +24,42 @@ export class PlayerPage implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
-      this.dataLoader
-        .getTeam(params.teamId)
-        .players.concat(
-          this.dataLoader.getTeam(params.teamId).youth,
-          this.dataLoader.getTeam(params.teamId).borrowed
-        )
-        .forEach((player: Player) => {
-          if (player.playerId === +params.id) {
-            player.stats = [
-              ...player.stats.filter(
-                (stats) => Object.keys(stats).length !== 0
-              ),
-            ];
-            /*
+      if (+params.teamId === 0 || params.teamId) {
+        this.dataLoader
+          .getTeam(params.teamId)
+          .players.concat(
+            this.dataLoader.getTeam(params.teamId).youth,
+            this.dataLoader.getTeam(params.teamId).borrowed
+          )
+          .forEach((player: Player) => {
+            if (player.playerId === +params.id) {
+              player.stats = [
+                ...player.stats.filter(
+                  (stats) => Object.keys(stats).length !== 0
+                ),
+              ];
+              /*
             player.stats.forEach((stats: Stats) => {
               if (stats.season === '2020-21') {
                 // this.stats = stats;
                 // this.season = '2020-21';
               }
             });*/
+              this.player = player;
+            }
+          });
+      } else {
+        this.dataLoader.getFreePlayers().forEach((player: Player) => {
+          if (player.playerId === +params.id) {
+            player.stats = [
+              ...player.stats.filter(
+                (stats) => Object.keys(stats).length !== 0
+              ),
+            ];
             this.player = player;
           }
         });
+      }
     });
   }
 

@@ -37,7 +37,7 @@
     <ng-container matColumnDef="team">
       <th mat-header-cell *matHeaderCellDef>Squadra</th>
       <td style="text-decoration: underline" mat-cell *matCellDef="let element">
-        {{element.team}}
+        {{element.team | shortTeam}}
       </td>
     </ng-container>
 
