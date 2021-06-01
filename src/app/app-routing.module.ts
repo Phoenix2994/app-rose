@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'player',
     loadChildren: () => import('./pages/player/player.module').then( m => m.PlayerPageModule)
+  },  {
+    path: 'renewal',
+    loadChildren: () => import('./pages/renewal/renewal.module').then( m => m.RenewalPageModule)
   },
+
 ];
 @NgModule({
   imports: [

@@ -33,6 +33,11 @@ const routes: Routes = [
           import('../free/free.module').then((m) => m.FreePageModule),
       },
       {
+        path: 'renewal',
+        loadChildren: () =>
+          import('../renewal/renewal.module').then((m) => m.RenewalPageModule),
+      },
+      {
         path: '',
         redirectTo: '/tabs/balance',
         pathMatch: 'full',

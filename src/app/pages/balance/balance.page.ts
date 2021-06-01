@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FinBalance } from 'src/app/shared/model/fin-balance';
 import { Team } from 'src/app/shared/model/team';
 import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
@@ -12,7 +13,7 @@ export class BalancePage implements OnInit {
   teams: Team[];
   teamId: number;
   balance: FinBalance;
-  constructor(private dataLoader: DataLoaderService) {}
+  constructor(private dataLoader: DataLoaderService, private router: Router) {}
 
   ngOnInit() {
     this.teams = this.dataLoader.getTeams();
@@ -26,5 +27,13 @@ export class BalancePage implements OnInit {
 
   changeTeam(event) {
     this.dataLoader.$teamId.next(event.detail.value);
+  }
+
+  navigateToRenewal() {
+    this.router.navigate(['/tabs/renewal'], {
+      queryParams: {
+        teamId: this.teamId,
+      },
+    });
   }
 }

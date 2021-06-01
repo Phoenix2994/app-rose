@@ -10,7 +10,6 @@ import { PlayerPage } from './player.page';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { RoundPipe } from './pipes/round.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FootPipe } from './pipes/foot.pipe';
 import { ContractPipe } from './pipes/contract.pipe';
@@ -32,6 +31,6 @@ registerLocaleData(localeFr, 'de');
     PlayerPageRoutingModule,
     SharedModule,
   ],
-  declarations: [PlayerPage, RoundPipe, FootPipe, ContractPipe, RolePipe],
+  declarations: [PlayerPage, FootPipe, ContractPipe, RolePipe],
 })
 export class PlayerPageModule {}

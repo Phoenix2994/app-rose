@@ -53,6 +53,9 @@
         <ion-col>Soldi versati</ion-col>
         <ion-col>{{balance?.paidLeagueExpense | currency:'EUR'}}</ion-col>
       </ion-row>
+      <ion-row>
+        <ion-button (click)="navigateToRenewal()">Calcola rinnovi</ion-button>
+      </ion-row>
     </ion-grid>
   </ion-card>
   <ion-card

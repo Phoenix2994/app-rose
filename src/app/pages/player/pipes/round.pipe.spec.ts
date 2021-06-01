@@ -1,4 +1,4 @@
-import { RoundPipe } from './round.pipe';
+import { RoundPipe } from '../../../shared/pipes/round.pipe';
 
 describe('RoundPipe', () => {
   it('create an instance', () => {
