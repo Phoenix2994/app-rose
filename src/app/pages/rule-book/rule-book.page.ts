@@ -12,6 +12,7 @@ export class RuleBookPage implements OnInit {
   pages = [
     {
       title: 'Rosa',
+      open: false,
       children: [
         {
           title: 'Composizione',
@@ -27,6 +28,7 @@ export class RuleBookPage implements OnInit {
     },
     {
       title: 'Aste e proprietà',
+      open: false,
       children: [
         {
           title: 'Aste',
@@ -67,6 +69,7 @@ export class RuleBookPage implements OnInit {
     },
     {
       title: 'Gruppo WhatsApp',
+      open: false,
       children: [
         {
           title: 'Espulsioni',

@@ -19,11 +19,13 @@ import { ExpelComponent } from './components/expel/expel.component';
 import { VoteComponent } from './components/vote/vote.component';
 import { TransfersComponent } from './components/transfers/transfers.component';
 import { WhatsappComponent } from './components/whatsapp/whatsapp.component';
+import { PlayerValueComponent } from './components/player-value/player-value.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RuleBookPageRoutingModule],
   declarations: [
     RuleBookPage,
+    PlayerValueComponent,
     IntroComponent,
     ExchangeRPComponent,
     PropertyComponent,
