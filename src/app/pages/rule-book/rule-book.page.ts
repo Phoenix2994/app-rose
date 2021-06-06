@@ -81,28 +81,6 @@ export class RuleBookPage implements OnInit {
       ],
     },
   ];
-  NAV = [
-    {
-      name: 'Composizione rosa',
-      link: '/rule-book/intro',
-      icon: 'football',
-    },
-    {
-      name: 'Aste e proprietà',
-      link: '/rule-book/property',
-      icon: 'football',
-    },
-    {
-      name: 'Gruppo WhatsApp',
-      link: '/rule-book/whatsapp',
-      icon: 'football',
-    },
-    {
-      name: 'Scambi e trattative',
-      link: '/rule-book/transfers',
-      icon: 'football',
-    },
-  ];
 
   constructor(private router: Router) {
     this.router.events.subscribe((event: RouterEvent) => {
