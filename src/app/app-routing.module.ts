@@ -19,6 +19,14 @@ const routes: Routes = [
     path: 'renewal',
     loadChildren: () => import('./pages/renewal/renewal.module').then( m => m.RenewalPageModule)
   },
+  {
+    path: 'team-list',
+    loadChildren: () => import('./pages/team-list/team-list.module').then( m => m.TeamListPageModule)
+  },
+  {
+    path: 'rule-book',
+    loadChildren: () => import('./pages/rule-book/rule-book.module').then( m => m.RuleBookPageModule)
+  },
 
 ];
 @NgModule({

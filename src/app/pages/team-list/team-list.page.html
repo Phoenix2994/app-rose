@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seleziona squadra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="cnt-home">
+  <mat-list>
+    <mat-list-item *ngFor="let team of teams">
+      <mat-card (click)="navigateToTeam(team.teamId)" class="cnt"
+        ><ion-row
+          ><img src="assets/img/{{logoMap[team.teamId-1]}}" alt="" />
+          <p>{{team?.name}}</p></ion-row
+        ></mat-card
+      >
+    </mat-list-item>
+  </mat-list>
+</ion-content>

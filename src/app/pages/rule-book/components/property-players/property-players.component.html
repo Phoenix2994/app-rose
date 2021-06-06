@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Aste e proprietà</ion-title>
+
+    <!-- Hamburger -->
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card
+    ><ion-card-body>
+      <h3>Giocatori di proprietà</h3>
+      <p>
+        A conclusione dell’asta ogni squadra deve possedere minimo 25 giocatori,
+        la primavera non deve necessariamente contenere giocatori.
+      </p>
+      <p>
+        A conclusione dell’annata fantacalcistica, i giocatori sono ancora
+        considerati parte della rosa. <br />Pur avendo il limite di
+        <b>30 giocatori</b> per ogni rosa durante l’anno, è possibile che
+        all’inizio di una nuova stagione una squadra finisca per possederne di
+        più.<br />
+        Questo è dovuto al fatto che non ci sono limitazioni sul numero di
+        prestiti che ogni squadra può fare. <br />
+        È quindi legale possedere 28 giocatori di proprietà e averne dati 4 in
+        prestito.<br />
+        All’inizio della stagione successiva, finirà per possedere 32
+        giocatori.<br />
+        Viene posto allora l’obbligo di svincolo per giocatori in eccesso (2
+        nell’esempio precedente) entro e non oltre la domenica successiva alla
+        fine del campionato.
+      </p>
+      <p>
+        Se una squadra finisce per avere più di 30 giocatori durante la stagione
+        (fine di un prestito per una clausola oppure un prestito che termina in
+        una delle sessioni di mercato interstagionali) dovrà svincolarne uno
+        immediatamente, non dopo la partita di Serie A successiva.
+      </p>
+      <p>
+        <b>Attenzione:</b> le trattative di prestito con obbligo di riscatto
+        attivato da una clausola, modificano la proprietà di un giocatore
+        potenzialmente durante la stagione. Affinché venga rispettato il limite
+        di 25 giocatori di proprietà, la squadra che ne ha perso la proprietà
+        avrà l’obbligo di comprare un giocatore dalla lista svincolati non oltre
+        la successiva giornata di serie A (questo ovviamente solo se il fatto di
+        perderne la proprietà ha portato la squadra a possederne solo 24).
+      </p>
+      <p>
+        <b> Attenzione:</b> un giocatore dato in prestito con diritto di
+        riscatto resta nella squadra a cui è stato dato in prestito fino
+        all’ultimo giorno disponibile per far valere tale diritto a meno che il
+        presidente non rinunci ufficialmente alla possibilità di riscattarlo.
+        Chiaramente la proprietà resta della squadra che ha offerto il prestito
+        fino al momento del riscatto il quale genera un cambio di proprietà.
+        Durante tutte queste fasi le squadre devono rispettare i limiti di
+        giocatori descritti nella
+        <a (click)="navigate()">Composizione della rosa</a>.
+      </p>
+    </ion-card-body></ion-card
+  >
+</ion-content>

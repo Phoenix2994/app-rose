@@ -10,17 +10,7 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  teams: Team[];
-  logoMap = LOGO_MAP;
+  constructor() {}
 
-  constructor(private dataLoader: DataLoaderService, private router: Router) {}
-
-  ngOnInit() {
-    this.teams = this.dataLoader.getTeams();
-  }
-
-  navigateToTeam(teamId: number) {
-    this.dataLoader.$teamId.next(teamId);
-    this.router.navigate([`/tabs`]);
-  }
+  ngOnInit() {}
 }
