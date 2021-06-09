@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Scambi e Trattative</ion-title>
+
+    <!-- Hamburger -->
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <h3>Tipologie di trattativa</h3>
+    <h5>Cessioni a titolo definitivo</h5>
+    <p>
+      Per le cessioni a titolo definitivo il valore del giocatore venduto sarà
+      uguagliato al prezzo di acquisto.
+    </p>
+    <p>
+      Nel caso però in cui il prezzo d’acquisto sia inferiore al valore del
+      giocatore, quest’ultimo non verrà cambiato.
+    </p>
+    <h5>Scambi secchi (2 giocatori)</h5>
+    <p>
+      Gli scambi secchi, cioè gli scambi senza conguaglio economico, modificano
+      il valore del giocatore che costa meno fra i due.
+    </p>
+    <p>
+      Il valore di entrambi i giocatori dopo lo scambio sarà uguale al valore
+      del giocatore che prima dello scambio costava di più.
+    </p>
+    <h5>Scambi secchi (3+ giocatori)</h5>
+    <p>
+      Per gli scambi secchi di tre o più giocatori le dinamiche sono uguali allo
+      scambio descritto in precedenza a parte una ovvia modifica:
+    </p>
+    <p>
+      Se l’aumento di valore, le cui modalità sono descritte in precedenza, deve
+      essere ridistribuito fra più giocatori, questo verrà diviso in parti
+      proporzionali ai valori dei singoli giocatori ed aggiunto ai rispettivi.
+    </p>
+    <h5>Scambi con conguaglio economico</h5>
+    <p>
+      Anche per gli scambi con conguaglio economico le dinamiche sono le stesse.
+    </p>
+    <p>
+      Questa volta, in più rispetto ai casi precedenti, si ha una costante in
+      denaro che va sommata al valore del giocatore per capire quale dei due
+      costi meno ed attuare i dovuti cambiamenti.
+    </p>
+    <h5>Prestito oneroso</h5>
+    <p>
+      Per il singolo prestito oneroso vale lo stesso ragionamento fatto con le
+      cessioni a titolo definitivo; se la cifra supera il valore del giocatore
+      allora questo sarà uguagliato al prezzo speso per il prestito.
+    </p>
+    <p>
+      <b>Attenzione:</b> la durata del prestito influenza il valore finale del
+      giocatore (per i dettagli vedi l’Appendice 1 del Regolamento in PDF).
+    </p>
+    <h5>Prestito con diritto/obbligo di riscatto</h5>
+    <p>
+      Per il prestito con diritto/obbligo di riscatto il valore del giocatore
+      diventa la cifra pagata per il riscatto (sommata alla cifra spesa per il
+      prestito nel caso sia un prestito oneroso) nel caso sia superiore al
+      valore.
+    </p>
+    <p>
+      <b>Attenzione:</b> la durata del prestito e il riscatto influenzano il
+      valore finale del giocatore (per i dettagli vedi l’Appendice 1 del
+      Regolamento in PDF).
+    </p>
+    <h5>Scambio di prestiti (con o senza conguaglio)</h5>
+    <p>
+      Questo caso prende in considerazione scambi di prestiti secchi (due
+      giocatori), scambi di prestiti secchi con più giocatori ma anche
+      l’eventualità che venga aggiunto un conguaglio economico. <br />Le
+      dinamiche del cambio di valore sono equivalenti al caso degli scambi
+      normali.
+    </p>
+    <h5>Trattativa totale</h5>
+    <p>
+      Le dinamiche di una trattativa con sia prestiti (secco/diritto/obbligo di
+      riscatto) che titoli definitivi riuniscono concettualmente i casi
+      illustrati in precedenza (dettagli nell'Appendice 1 del Regolamento in
+      PDF).
+    </p>
+  </ion-card>
+</ion-content>

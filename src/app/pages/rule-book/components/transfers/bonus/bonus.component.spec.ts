@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TransfersComponent } from './transfers.component';
+import { BonusComponent } from './bonus.component';
 
-describe('TransfersComponent', () => {
-  let component: TransfersComponent;
-  let fixture: ComponentFixture<TransfersComponent>;
+describe('BonusComponent', () => {
+  let component: BonusComponent;
+  let fixture: ComponentFixture<BonusComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TransfersComponent ],
+      declarations: [ BonusComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TransfersComponent);
+    fixture = TestBed.createComponent(BonusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

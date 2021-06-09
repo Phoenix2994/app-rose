@@ -83,6 +83,37 @@ export class RuleBookPage implements OnInit {
         },
       ],
     },
+    {
+      title: 'Scambi e Trattative',
+      open: false,
+      children: [
+        {
+          title: 'Finestre di mercato',
+          url: '/rule-book/market-windows',
+          icon: 'football',
+        },
+        {
+          title: 'Regole generali',
+          url: '/rule-book/rules',
+          icon: 'football',
+        },
+        {
+          title: 'Tipologie di trattativa',
+          url: '/rule-book/deals',
+          icon: 'football',
+        },
+        {
+          title: 'Bonus',
+          url: '/rule-book/bonus',
+          icon: 'football',
+        },
+        {
+          title: 'Clausole',
+          url: '/rule-book/clause',
+          icon: 'football',
+        },
+      ],
+    },
   ];
 
   constructor(private router: Router) {
