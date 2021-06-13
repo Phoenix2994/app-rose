@@ -24,6 +24,11 @@ import { DealsComponent } from './components/transfers/deals/deals.component';
 import { BonusComponent } from './components/transfers/bonus/bonus.component';
 import { ClauseComponent } from './components/transfers/clause/clause.component';
 import { RulesComponent } from './components/transfers/rules/rules.component';
+import { AwardsComponent } from './components/awards/awards.component';
+import { FinalsComponent } from './components/cup/finals/finals.component';
+import { RoundsComponent } from './components/cup/rounds/rounds.component';
+import { HelpsComponent } from './components/helps/helps.component';
+import { FairPlayComponent } from './components/fair-play/fair-play.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RuleBookPageRoutingModule],
@@ -46,6 +51,11 @@ import { RulesComponent } from './components/transfers/rules/rules.component';
     BonusComponent,
     ClauseComponent,
     RulesComponent,
+    AwardsComponent,
+    FinalsComponent,
+    RoundsComponent,
+    HelpsComponent,
+    FairPlayComponent,
   ],
 })
 export class RuleBookPageModule {}
