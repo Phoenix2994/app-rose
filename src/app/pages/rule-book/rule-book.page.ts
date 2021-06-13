@@ -114,6 +114,44 @@ export class RuleBookPage implements OnInit {
         },
       ],
     },
+    {
+      title: 'Coppa',
+      open: false,
+      children: [
+        {
+          title: 'Fase a gironi',
+          url: '/rule-book/rounds',
+          icon: 'football',
+        },
+        {
+          title: 'Fase finale',
+          url: '/rule-book/finals',
+          icon: 'football',
+        },
+      ],
+    },
+    {
+      title: 'Montepremi',
+      open: false,
+      children: [
+        {
+          title: 'Tabelle premi',
+          url: '/rule-book/awards',
+          icon: 'football',
+        },
+        {
+          title: 'Aiuti di Lega',
+          url: '/rule-book/helps',
+          icon: 'football',
+        },
+      ],
+    },
+    {
+      title: 'Correttezza della competizione',
+      open: false,
+      url: '/rule-book/fair-play',
+      icon: 'football',
+    },
   ];
 
   constructor(private router: Router) {
