@@ -119,6 +119,11 @@ const routes: Routes = [
         component: FairPlayComponent,
       },
       {
+        path: 'home',
+        loadChildren: () =>
+          import('../home/home.module').then((m) => m.HomePageModule),
+      },
+      {
         path: '',
         redirectTo: '/rule-book/intro',
         pathMatch: 'full',

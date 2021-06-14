@@ -20,6 +20,11 @@ const routes: Routes = [
         (m) => m.SelectTeamsPageModule
       ),
   },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('../../home/home.module').then((m) => m.HomePageModule),
+  },
 ];
 
 @NgModule({

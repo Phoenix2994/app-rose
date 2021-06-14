@@ -7,6 +7,11 @@
     </ion-header>
 
     <ion-content>
+      <ion-menu-toggle>
+        <ion-item routerLink="/rule-book/home">
+          <ion-label>Home</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
       <div *ngFor="let p of pages">
         <!--
         <ion-menu-toggle *ngIf="p.url">
