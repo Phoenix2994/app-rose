@@ -1,0 +1,155 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
+import { ViewWillEnter } from '@ionic/angular';
+import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
+import { Player } from '../model/player';
+import { ToolService } from '../services/tool.service';
+
+@Component({
+  selector: 'app-tool-exchange',
+  templateUrl: './tool-exchange.page.html',
+  styleUrls: ['./tool-exchange.page.scss'],
+})
+export class ToolExchangePage implements ViewWillEnter {
+  firstTeamName: string;
+  secondTeamName: string;
+  firstTeamId: number;
+  secondTeamId: number;
+
+  firstTeam: Array<Player> = [];
+  secondTeam: Array<Player> = [];
+
+  firstTeamValues: Array<Player> = [];
+  secondTeamValues: Array<Player> = [];
+
+  extra1: number = 0;
+  extra2: number = 0;
+
+  @ViewChild('firstTeamTable') firstTeamTable: MatTable<Player>;
+  @ViewChild('secondTeamTable') secondTeamTable: MatTable<Player>;
+  @ViewChild('finalFirstTeamTable') finalFirstTeamTable: MatTable<Player>;
+  @ViewChild('finalSecondTeamTable') finalSecondTeamTable: MatTable<Player>;
+
+  firstTeamCols: string[] = [
+    'position',
+    'value',
+    'contract',
+    'length',
+    'bonus',
+    'remove',
+  ];
+
+  finalFirstTeamCols: string[] = ['position', 'value'];
+
+  secondTeamCols: string[] = [
+    'position',
+    'value',
+    'contract',
+    'length',
+    'bonus',
+    'remove',
+  ];
+
+  finalSecondTeamCols: string[] = ['position', 'value'];
+
+  constructor(
+    private service: ToolService,
+    private route: ActivatedRoute,
+    private dataLoader: DataLoaderService,
+    private toolService: ToolService
+  ) {}
+
+  ionViewWillEnter() {
+    this.route.queryParams.subscribe((params) => {
+      if (+params.firstTeamId) {
+        this.firstTeamId = +params.firstTeamId;
+        this.secondTeamId = +params.secondTeamId;
+        this.toolService.firstTeamId = this.firstTeamId;
+        this.toolService.secondTeamId = this.secondTeamId;
+        this.firstTeamName = this.dataLoader.getTeamName(+params.firstTeamId);
+        this.secondTeamName = this.dataLoader.getTeamName(+params.secondTeamId);
+      } else {
+        this.firstTeamId = this.toolService.firstTeamId;
+        this.secondTeamId = this.toolService.secondTeamId;
+        this.firstTeamName = this.dataLoader.getTeamName(this.firstTeamId);
+        this.secondTeamName = this.dataLoader.getTeamName(this.secondTeamId);
+      }
+    });
+
+    this.firstTeam = [];
+    this.secondTeam = [];
+    this.firstTeamValues = [];
+    this.secondTeamValues = [];
+
+    this.service.team1.players.forEach((player) => this.firstTeam.push(player));
+    this.service.team2.players.forEach((player) =>
+      this.secondTeam.push(player)
+    );
+    if (this.firstTeam.length != 0) {
+      this.firstTeamTable.renderRows();
+    }
+
+    if (this.secondTeam.length != 0) {
+      this.secondTeamTable.renderRows();
+    }
+    this.service.computeFinalValues();
+
+    this.service.team1.finalPlayers.forEach((player) => {
+      this.firstTeamValues.push(player);
+    });
+    this.service.team2.finalPlayers.forEach((player) => {
+      this.secondTeamValues.push(player);
+    });
+    if (this.firstTeam.length != 0) {
+      this.finalFirstTeamTable.renderRows();
+    }
+    if (this.secondTeam.length != 0) {
+      this.finalSecondTeamTable.renderRows();
+    }
+    if (this.firstTeamValues.length == 0) {
+      this.firstTeamCols = [];
+      this.finalFirstTeamCols = [];
+    } else {
+      this.firstTeamCols = [
+        'position',
+        'value',
+        'contract',
+        'length',
+        'bonus',
+        'remove',
+      ];
+      this.finalFirstTeamCols = ['position', 'value'];
+    }
+
+    if (this.secondTeamValues.length == 0) {
+      this.secondTeamCols = [];
+      this.finalSecondTeamCols = [];
+    } else {
+      this.secondTeamCols = [
+        'position',
+        'value',
+        'contract',
+        'length',
+        'bonus',
+        'remove',
+      ];
+      this.finalSecondTeamCols = ['position', 'value'];
+    }
+  }
+
+  setFirstExtra() {
+    this.service.$extra1.next(this.extra1);
+    this.ionViewWillEnter();
+  }
+
+  setSecondExtra() {
+    this.service.$extra2.next(this.extra2);
+    this.ionViewWillEnter();
+  }
+
+  remove(player: Player) {
+    this.service.remove(player.id);
+    this.ionViewWillEnter();
+  }
+}

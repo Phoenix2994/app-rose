@@ -45,3 +45,29 @@ td.mat-cell:last-of-type {
 .mat-form-field-infix {
   border-top: 0px !important;
 }
+
+.player {
+  text-align: center;
+  .mat-form-field {
+    width: 40%;
+    margin-right: 10px;
+  }
+}
+
+// CHANGE COLOR OF MAT FIELDS FORM
+
+.mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+}
+.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: white !important;
+}
+.mat-selected .mat-option-text {
+  color: white !important;
+}

@@ -1,0 +1,106 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
+import { Bonus } from '../model/bonus';
+import { Player } from '../model/player';
+import { ToolService } from '../services/tool.service';
+
+@Component({
+  selector: 'app-player',
+  templateUrl: './player.page.html',
+  styleUrls: ['./player.page.scss'],
+})
+export class PlayerPage implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private service: ToolService,
+    private dataLoader: DataLoaderService
+  ) {}
+
+  id: string;
+  value: string;
+  quot: number;
+  finalQuot: number;
+  contractType: string;
+  contractLength: string;
+  repaidValue: string;
+  repaid: string;
+  bonus: string;
+  bonus1Number: string;
+  bonus1Reward: string;
+  bonus2Number: string;
+  bonus2Reward: string;
+
+  players: any[];
+  playerName: string;
+
+  ngOnInit() {
+    this.bonus = '0';
+    this.contractType = 'def';
+    this.repaid = 'no';
+    this.id = this.route.snapshot.paramMap.get('id');
+    const teamId = +this.route.snapshot.paramMap.get('teamId');
+    this.players = [...this.dataLoader.getTeam(teamId).players]
+      .concat(
+        this.dataLoader.getTeam(teamId).borrowed,
+        this.dataLoader.getTeam(teamId).youth
+      )
+      .sort((a, b) => {
+        return a['name'] < b['name'] ? -1 : a['name'] > b['name'] ? 1 : 0;
+      });
+  }
+
+  changePlayer(event) {
+    let player = this.players.filter((player) => {
+      return player.playerId.toString() === event.detail.value;
+    });
+
+    this.value = player[0]['value'].toString();
+    this.quot = player[0]['quot'].toString();
+    this.finalQuot = player[0]['quot'].toString();
+    this.playerName = player[0]['name'];
+  }
+
+  save() {
+    let bonus = [];
+    if (this.bonus === '1') {
+      bonus.push(
+        new Bonus(
+          +this.bonus1Number.replace(/,/g, '.'),
+          +this.bonus1Reward.replace(/,/g, '.')
+        )
+      );
+    } else if (this.bonus === '2') {
+      bonus.push(
+        new Bonus(
+          +this.bonus1Number.replace(/,/g, '.'),
+          +this.bonus1Reward.replace(/,/g, '.')
+        )
+      );
+      bonus.push(
+        new Bonus(
+          +this.bonus2Number.replace(/,/g, '.'),
+          +this.bonus2Reward.replace(/,/g, '.')
+        )
+      );
+    }
+    this.service.save(
+      +this.id,
+      new Player(
+        +this.value.replace(/,/g, '.'),
+        +this.quot,
+        this.contractType,
+        this.contractLength,
+        bonus,
+        this.repaid,
+        this.repaidValue ? +this.repaidValue.replace(/,/g, '.') : null,
+        this.finalQuot ? +this.finalQuot : +this.quot,
+        +this.value.replace(/,/g, '.'),
+        null,
+        this.playerName ? this.playerName : 'GIOCATORE'
+      )
+    );
+    this.router.navigate(['/tool-exchange']);
+  }
+}

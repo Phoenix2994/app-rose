@@ -14,20 +14,42 @@ const routes: Routes = [
   },
   {
     path: 'player',
-    loadChildren: () => import('./pages/player/player.module').then( m => m.PlayerPageModule)
-  },  {
+    loadChildren: () =>
+      import('./pages/player/player.module').then((m) => m.PlayerPageModule),
+  },
+  {
     path: 'renewal',
-    loadChildren: () => import('./pages/renewal/renewal.module').then( m => m.RenewalPageModule)
+    loadChildren: () =>
+      import('./pages/renewal/renewal.module').then((m) => m.RenewalPageModule),
   },
   {
     path: 'team-list',
-    loadChildren: () => import('./pages/team-list/team-list.module').then( m => m.TeamListPageModule)
+    loadChildren: () =>
+      import('./pages/team-list/team-list.module').then(
+        (m) => m.TeamListPageModule
+      ),
   },
   {
     path: 'rule-book',
-    loadChildren: () => import('./pages/rule-book/rule-book.module').then( m => m.RuleBookPageModule)
+    loadChildren: () =>
+      import('./pages/rule-book/rule-book.module').then(
+        (m) => m.RuleBookPageModule
+      ),
   },
-
+  {
+    path: 'tool-exchange',
+    loadChildren: () =>
+      import('./pages/tool-ex/tool-exchange/tool-exchange.module').then(
+        (m) => m.ToolExchangePageModule
+      ),
+  },
+  {
+    path: 'select-teams',
+    loadChildren: () =>
+      import('./pages/tool-ex/select-teams/select-teams.module').then(
+        (m) => m.SelectTeamsPageModule
+      ),
+  },
 ];
 @NgModule({
   imports: [
