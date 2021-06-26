@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import TEAMS from '../../../assets/json/teams.json';
 import FREE_PLAYERS from '../../../assets/json/free_players.json';
 import { Team } from '../model/team';
-import { Player } from '../model/player';
+import { IPlayer } from '../model/player';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class DataLoaderService {
   $teamId: Subject<number> = new Subject();
   teamId: number;
   private teams: Team[] = TEAMS;
-  private freePlayers: Player[] = FREE_PLAYERS;
+  private freePlayers: IPlayer[] = FREE_PLAYERS;
   constructor() {
     this.$teamId.subscribe((id: number) => {
       this.teamId = id;

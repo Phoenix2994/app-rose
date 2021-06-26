@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Player } from 'src/app/shared/model/player';
+import { IPlayer } from 'src/app/shared/model/player';
 import { Team } from 'src/app/shared/model/team';
 import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 
@@ -10,7 +10,7 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
   styleUrls: ['./free.page.scss'],
 })
 export class FreePage implements OnInit {
-  players: Player[] = [];
+  players: IPlayer[] = [];
   teamId: number;
   displayedColumns: string[] = ['role', 'name', 'team', 'quot'];
   teams: Team[];
@@ -46,7 +46,7 @@ export class FreePage implements OnInit {
 
   filter() {
     this.players = [...this.dataLoader.getFreePlayers()].filter(
-      (player: Player) => {
+      (player: IPlayer) => {
         return (
           (this.roleToFilter ? player.role === this.roleToFilter : true) &&
           (this.nameToFilter

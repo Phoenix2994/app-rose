@@ -1,10 +1,10 @@
 import { FinBalance } from './fin-balance';
-import { Player } from './player';
+import { IPlayer } from './player';
 
 export interface Team {
-  players: Player[];
-  youth: Player[];
-  borrowed: Player[];
+  players: IPlayer[];
+  youth: IPlayer[];
+  borrowed: IPlayer[];
   name: string;
   teamId: number;
   finBalance: FinBalance;

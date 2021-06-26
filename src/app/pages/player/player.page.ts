@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonContent } from '@ionic/angular';
-import { Player } from 'src/app/shared/model/player';
+import { IPlayer } from 'src/app/shared/model/player';
 import { Stats } from 'src/app/shared/model/stats';
 import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 
@@ -13,7 +13,7 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 export class PlayerPage implements OnInit {
   @ViewChild(IonContent, { static: false }) content: IonContent;
 
-  player: Player;
+  player: IPlayer;
   season: string;
   stats: Stats;
 
@@ -31,7 +31,7 @@ export class PlayerPage implements OnInit {
             this.dataLoader.getTeam(params.teamId).youth,
             this.dataLoader.getTeam(params.teamId).borrowed
           )
-          .forEach((player: Player) => {
+          .forEach((player: IPlayer) => {
             if (player.playerId === +params.id) {
               player.stats = [
                 ...player.stats.filter(
@@ -49,7 +49,7 @@ export class PlayerPage implements OnInit {
             }
           });
       } else {
-        this.dataLoader.getFreePlayers().forEach((player: Player) => {
+        this.dataLoader.getFreePlayers().forEach((player: IPlayer) => {
           if (player.playerId === +params.id) {
             player.stats = [
               ...player.stats.filter(

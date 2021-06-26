@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Player } from 'src/app/shared/model/player';
+import { IPlayer } from 'src/app/shared/model/player';
 import { Team } from 'src/app/shared/model/team';
 import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 
@@ -10,7 +10,7 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
   styleUrls: ['./youth.page.scss'],
 })
 export class YouthPage implements OnInit {
-  players: Player[] = [];
+  players: IPlayer[] = [];
   teamId: number;
   displayedColumns: string[] = ['role', 'name', 'team', 'quot', 'value'];
   teams: Team[];

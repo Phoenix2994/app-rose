@@ -1,6 +1,6 @@
 import { Stats } from './stats';
 
-export interface Player {
+export interface IPlayer {
   playerId: number;
   name: string;
   age: number;

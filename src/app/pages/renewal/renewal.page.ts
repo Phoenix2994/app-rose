@@ -1,7 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { MatGridTileHeaderCssMatStyler } from '@angular/material/grid-list';
-import { Player } from 'src/app/shared/model/player';
+import { IPlayer } from 'src/app/shared/model/player';
 import { Team } from 'src/app/shared/model/team';
 import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 
@@ -11,7 +11,7 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
   styleUrls: ['./renewal.page.scss'],
 })
 export class RenewalPage implements OnInit {
-  players: Player[] = [];
+  players: IPlayer[] = [];
   teamId: number;
   displayedColumns: string[] = [
     'select',
@@ -25,7 +25,7 @@ export class RenewalPage implements OnInit {
   teams: Team[];
   initialSelection = [];
   allowMultiSelect = true;
-  selection = new SelectionModel<Player>(
+  selection = new SelectionModel<IPlayer>(
     this.allowMultiSelect,
     this.initialSelection
   );
