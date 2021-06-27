@@ -2,12 +2,14 @@
   text-align: center;
   background-color: #424242;
   color: white;
-}
-
-.container strong {
-  font-size: 20px;
-  line-height: 26px;
-  margin-right: 20px;
+  .mat-table {
+    background-color: #303030;
+  }
+  strong {
+    font-size: 20px;
+    line-height: 26px;
+    margin-right: 20px;
+  }
 }
 
 table {

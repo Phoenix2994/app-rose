@@ -40,7 +40,7 @@ export class ToolExchangePage implements ViewWillEnter {
     'remove',
   ];
 
-  finalFirstTeamCols: string[] = ['position', 'value'];
+  finalFirstTeamCols: string[] = ['position', 'value', 'trend'];
 
   secondTeamCols: string[] = [
     'position',
@@ -51,7 +51,7 @@ export class ToolExchangePage implements ViewWillEnter {
     'remove',
   ];
 
-  finalSecondTeamCols: string[] = ['position', 'value'];
+  finalSecondTeamCols: string[] = ['position', 'value', 'trend'];
 
   constructor(
     private service: ToolService,
@@ -119,7 +119,7 @@ export class ToolExchangePage implements ViewWillEnter {
         'bonus',
         'remove',
       ];
-      this.finalFirstTeamCols = ['position', 'value'];
+      this.finalFirstTeamCols = ['position', 'value', 'trend'];
     }
 
     if (this.secondTeamValues.length == 0) {
@@ -134,7 +134,7 @@ export class ToolExchangePage implements ViewWillEnter {
         'bonus',
         'remove',
       ];
-      this.finalSecondTeamCols = ['position', 'value'];
+      this.finalSecondTeamCols = ['position', 'value', 'trend'];
     }
   }
 
