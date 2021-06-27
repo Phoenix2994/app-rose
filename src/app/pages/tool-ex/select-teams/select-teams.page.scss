@@ -6,3 +6,21 @@ ion-card {
 ion-button {
   margin: 1em auto;
 }
+
+table {
+  width: 100%;
+
+  td {
+    padding: 0 0.5em;
+    font-size: 0.8rem;
+  }
+
+  .role {
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 9px;
+  }
+  .align-right {
+    text-align: right;
+  }
+}

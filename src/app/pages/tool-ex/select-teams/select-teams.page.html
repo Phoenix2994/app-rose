@@ -5,33 +5,186 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-select
-      style="width: 100%; font-weight: bold; font-size: larger"
-      (ionChange)="changeFirstTeam($event)"
-      placeholder="Seleziona Squadra 1"
-      required
-    >
-      <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
-        <b>{{team.name}}</b>
-      </ion-select-option>
-    </ion-select>
-    <ion-select
-      style="width: 100%; font-weight: bold; font-size: larger"
-      (ionChange)="changeSecondTeam($event)"
-      placeholder="Seleziona Squadra 2"
-      required
-    >
-      <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
-        <b>{{team.name}}</b>
-      </ion-select-option>
-    </ion-select>
-    <ion-row>
-      <ion-button
-        [disabled]="!firstTeamId || !secondTeamId"
-        (click)="navigateToTool()"
-        >Prosegui</ion-button
+  <ion-card class="tool-card">
+    <mat-tab-group [selectedIndex]="0">
+      <mat-tab label="Squadre">
+        <ng-template mat-tab-label>
+          <ion-tab-button>
+            <ion-icon name="football"></ion-icon>
+            <ion-label>Squadre</ion-label></ion-tab-button
+          >
+        </ng-template>
+        <ion-card class="tool-teams">
+          <ion-select
+            style="width: 100%; font-weight: bold; font-size: larger"
+            (ionChange)="changeFirstTeam($event)"
+            placeholder="Seleziona la tua squadra"
+            required
+          >
+            <ion-select-option
+              *ngFor="let team of teams"
+              value="{{team.teamId}}"
+            >
+              <b>{{team.name}}</b>
+            </ion-select-option>
+          </ion-select>
+          <ion-select
+            style="width: 100%; font-weight: bold; font-size: larger"
+            (ionChange)="changeSecondTeam($event)"
+            placeholder="Seleziona un avversario"
+            required
+          >
+            <ion-select-option
+              *ngFor="let team of teams"
+              value="{{team.teamId}}"
+            >
+              <b>{{team.name}}</b>
+            </ion-select-option>
+          </ion-select>
+          <ion-grid>
+            <ion-row>
+              <ion-col style="padding-right: 0" size="6">
+                <table
+                  mat-table
+                  [dataSource]="ownPlayers"
+                  class="mat-elevation-z8"
+                >
+                  <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+                  <ng-container matColumnDef="select">
+                    <th
+                      style="display: none"
+                      mat-header-cell
+                      *matHeaderCellDef
+                    ></th>
+                    <td mat-cell *matCellDef="let row">
+                      <mat-checkbox
+                        (click)="$event.stopPropagation()"
+                        (change)="$event ? toggleSelect(row) : null"
+                        [checked]="selection.isSelected(row)"
+                      >
+                      </mat-checkbox>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="role">
+                    <th
+                      style="text-align: center; display: none"
+                      mat-header-cell
+                      *matHeaderCellDef
+                    ></th>
+                    <td mat-cell *matCellDef="let element">
+                      <b
+                        [ngStyle]="{'background-color': computeRoleColor(element.role)}"
+                        class="role"
+                        >{{element.role}}</b
+                      >
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="name">
+                    <th
+                      style="display: none"
+                      mat-header-cell
+                      *matHeaderCellDef
+                    ></th>
+                    <td mat-cell *matCellDef="let element">
+                      {{element.name | formatName}}
+                    </td>
+                  </ng-container>
+
+                  <tr
+                    mat-row
+                    (click)="toggleSelect(row)"
+                    *matRowDef="let row; columns: displayedColumns;"
+                  ></tr></table
+              ></ion-col>
+              <ion-col size="6">
+                <table
+                  mat-table
+                  [dataSource]="otherPlayers"
+                  class="mat-elevation-z8"
+                >
+                  <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+                  <ng-container matColumnDef="select">
+                    <th
+                      style="display: none"
+                      mat-header-cell
+                      *matHeaderCellDef
+                    ></th>
+                    <td mat-cell *matCellDef="let row">
+                      <mat-checkbox
+                        (click)="$event.stopPropagation()"
+                        (change)="$event ? toggleSelect(row) : null"
+                        [checked]="selection.isSelected(row)"
+                      >
+                      </mat-checkbox>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="role">
+                    <th
+                      style="text-align: center; display: none"
+                      mat-header-cell
+                      *matHeaderCellDef
+                    ></th>
+                    <td mat-cell *matCellDef="let element">
+                      <b
+                        [ngStyle]="{'background-color': computeRoleColor(element.role)}"
+                        class="role"
+                        >{{element.role}}</b
+                      >
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="name">
+                    <th
+                      style="display: none"
+                      mat-header-cell
+                      *matHeaderCellDef
+                    ></th>
+                    <td mat-cell *matCellDef="let element">
+                      {{element.name | formatName}}
+                    </td>
+                  </ng-container>
+
+                  <tr
+                    mat-row
+                    (click)="toggleSelect(row)"
+                    *matRowDef="let row; columns: displayedColumns;"
+                  ></tr></table
+              ></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </mat-tab>
+      <mat-tab [disabled]="!firstTeamId || !secondTeamId" label="Tipologia">
+        <ng-template mat-tab-label>
+          <ion-tab-button>
+            <ion-icon name="football"></ion-icon>
+            <ion-label>Tipologia</ion-label></ion-tab-button
+          >
+        </ng-template></mat-tab
       >
-    </ion-row>
+      <mat-tab [disabled]="!firstTeamId || !secondTeamId" label="Bonus">
+        <ng-template mat-tab-label>
+          <ion-tab-button>
+            <ion-icon name="football"></ion-icon>
+            <ion-label>Bonus</ion-label></ion-tab-button
+          >
+        </ng-template>
+      </mat-tab>
+      <mat-tab [disabled]="!firstTeamId || !secondTeamId" label="Valori">
+        <ng-template mat-tab-label>
+          <ion-tab-button>
+            <ion-icon name="football"></ion-icon>
+            <ion-label>Valori</ion-label></ion-tab-button
+          >
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
   </ion-card>
 </ion-content>
