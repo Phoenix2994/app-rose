@@ -1,3 +1,15 @@
+.btn-cnt {
+  right: 0;
+  float: right;
+  position: absolute;
+  top: 1rem;
+  ion-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 2rem;
+  }
+}
+
 .container {
   text-align: center;
   background-color: #424242;
@@ -9,6 +21,13 @@
     font-size: 20px;
     line-height: 26px;
     margin-right: 20px;
+  }
+  ion-button {
+    margin: 0 auto 1em auto;
+  }
+  .big-icon {
+    height: 3rem;
+    width: 3rem;
   }
 }
 
@@ -23,8 +42,4 @@ table {
 
 .finalTitle {
   margin-top: 50px;
-}
-
-ion-button {
-  margin: 1em auto;
 }

@@ -1,13 +1,18 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Tool Scambi</ion-title>
+    <!--
+    <div class="btn-cnt">
+      <ion-icon
+        slot="end"
+        routerLink="/select-teams"
+        name="swap-horizontal-outline"
+      ></ion-icon>
+      <ion-icon routerLink="home" slot="end" name="home"></ion-icon>
+    </div>-->
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-row>
-    <ion-button routerLink="home">Home</ion-button>
-    <ion-button routerLink="/select-teams">Cambia squadre</ion-button>
-  </ion-row>
   <ion-card class="container">
     <mat-tab-group>
       <mat-tab label="{{firstTeamName}}">
@@ -15,6 +20,16 @@
         <div *ngIf="firstTeam.length != 0" style="margin-top: 20px">
           <b>Valori Iniziali</b>
         </div>-->
+        <mat-form-field style="margin-top: 1rem" appearance="fill">
+          <mat-label>Conguaglio</mat-label>
+          <input (change)="setFirstExtra()" [(ngModel)]="extra1" matInput />
+        </mat-form-field>
+        <ion-row>
+          <ion-button routerLink="team/{{firstTeamId}}/player/1"
+            >Aggiungi giocatore</ion-button
+          >
+        </ion-row>
+
         <table
           #firstTeamTable
           mat-table
@@ -64,18 +79,15 @@
           <tr mat-header-row *matHeaderRowDef="firstTeamCols"></tr>
           <tr mat-row *matRowDef="let row; columns: firstTeamCols;"></tr>
         </table>
-        <mat-form-field appearance="fill">
-          <mat-label>Conguaglio</mat-label>
-          <input (change)="setFirstExtra()" [(ngModel)]="extra1" matInput />
-        </mat-form-field>
-        <ion-row>
-          <ion-button routerLink="team/{{firstTeamId}}/player/1"
-            >Aggiungi giocatore</ion-button
-          >
-        </ion-row>
+
         <!--   <div *ngIf="firstTeam.length != 0" style="margin-top: 1em">
           <b>Valori Finali</b>
         </div>-->
+        <ion-icon
+          *ngIf="firstTeam.length !==0"
+          class="big-icon"
+          name="arrow-down-circle"
+        ></ion-icon>
 
         <table
           [ngClass]="{'tableHidden': firstTeam.length == 0}"
@@ -122,6 +134,16 @@
         <div *ngIf="secondTeam.length != 0" style="margin-top: 20px">
           <b>Valori Iniziali</b>
         </div>-->
+        <mat-form-field style="margin-top: 1rem" appearance="fill">
+          <mat-label>Conguaglio</mat-label>
+          <input (change)="setSecondExtra()" [(ngModel)]="extra2" matInput />
+        </mat-form-field>
+        <ion-row>
+          <ion-button routerLink="team/{{secondTeamId}}/player/2"
+            >Aggiungi giocatore</ion-button
+          >
+        </ion-row>
+
         <table
           [ngClass]="{'tableHidden': secondTeam.length == 0}"
           #secondTeamTable
@@ -171,15 +193,11 @@
           <tr mat-header-row *matHeaderRowDef="secondTeamCols"></tr>
           <tr mat-row *matRowDef="let row; columns: secondTeamCols;"></tr>
         </table>
-        <mat-form-field appearance="fill">
-          <mat-label>Conguaglio</mat-label>
-          <input (change)="setSecondExtra()" [(ngModel)]="extra2" matInput />
-        </mat-form-field>
-        <ion-row>
-          <ion-button routerLink="team/{{secondTeamId}}/player/2"
-            >Aggiungi giocatore</ion-button
-          >
-        </ion-row>
+        <ion-icon
+          *ngIf="secondTeam.length !==0"
+          class="big-icon"
+          name="arrow-down-circle"
+        ></ion-icon>
 
         <!--     <div *ngIf="secondTeam.length != 0" style="margin-top: 1em">
           <b>Valori Finali</b>
