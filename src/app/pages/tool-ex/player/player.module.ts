@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { PlayerPageRoutingModule } from './player-routing.module';
 
 import { PlayerPage } from './player.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { PlayerPage } from './player.page';
     MatInputModule,
     MatTabsModule,
     MatButtonModule,
+    SharedModule,
   ],
   declarations: [PlayerPage],
 })

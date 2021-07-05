@@ -17,6 +17,7 @@ import { ToolExchangePage } from './tool-exchange.page';
 import { ContractTypeMapPipe } from '../pipes/contract-type-map.pipe';
 import { BonusComputePipe } from '../pipes/bonus-compute.pipe';
 import { RoundPipe } from '../pipes/round.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { RoundPipe } from '../pipes/round.pipe';
     MatButtonModule,
     MatTableModule,
     IonicModule.forRoot({ mode: 'md' }),
+    SharedModule,
   ],
   declarations: [
     ToolExchangePage,

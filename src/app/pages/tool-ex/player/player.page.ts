@@ -34,6 +34,9 @@ export class PlayerPage implements OnInit {
 
   players: any[];
   playerName: string;
+  role: string;
+
+  formFlag = false;
 
   ngOnInit() {
     this.bonus = '0';
@@ -55,11 +58,12 @@ export class PlayerPage implements OnInit {
     let player = this.players.filter((player) => {
       return player.playerId.toString() === event.detail.value;
     });
-
+    this.formFlag = true;
     this.value = player[0]['value'].toString();
     this.quot = player[0]['quot'].toString();
     this.finalQuot = player[0]['quot'].toString();
     this.playerName = player[0]['name'];
+    this.role = player[0]['role'];
   }
 
   save() {
@@ -98,7 +102,8 @@ export class PlayerPage implements OnInit {
         this.finalQuot ? +this.finalQuot : +this.quot,
         +this.value.replace(/,/g, '.'),
         null,
-        this.playerName ? this.playerName : 'GIOCATORE'
+        this.playerName ? this.playerName : 'GIOCATORE',
+        this.role
       )
     );
     this.router.navigate(['/tool-exchange']);

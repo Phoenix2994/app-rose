@@ -20,10 +20,11 @@
         *ngFor="let player of players"
         value="{{player.playerId}}"
       >
-        <b>{{player.name}}</b>
+        <b>{{player.role}}</b> <b>{{player.role ? ' -' : ''}} </b>
+        <b>{{player.name | formatName}}</b>
       </ion-select-option>
     </ion-select>
-    <div class="player">
+    <div *ngIf="formFlag" class="player">
       <mat-form-field style="display: block; margin: auto" appearance="fill">
         <mat-label>Valore</mat-label>
         <input [(ngModel)]="value" matInput />

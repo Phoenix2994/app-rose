@@ -71,3 +71,8 @@ td.mat-cell:last-of-type {
 .mat-selected .mat-option-text {
   color: white !important;
 }
+
+// padding in tab tool exchange
+.container .mat-tab-label {
+  padding: 0 6px !important;
+}

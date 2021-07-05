@@ -12,6 +12,7 @@ export class Player {
     public finalQuot?: number,
     public finalValue?: number,
     public id?: number,
-    public name?: string
+    public name?: string,
+    public role?: string
   ) {}
 }

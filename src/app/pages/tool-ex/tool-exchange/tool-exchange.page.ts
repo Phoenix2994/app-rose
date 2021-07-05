@@ -32,7 +32,8 @@ export class ToolExchangePage implements ViewWillEnter {
   @ViewChild('finalSecondTeamTable') finalSecondTeamTable: MatTable<Player>;
 
   firstTeamCols: string[] = [
-    'position',
+    'role',
+    'name',
     'value',
     'contract',
     'length',
@@ -40,10 +41,11 @@ export class ToolExchangePage implements ViewWillEnter {
     'remove',
   ];
 
-  finalFirstTeamCols: string[] = ['position', 'value', 'trend'];
+  finalFirstTeamCols: string[] = ['role', 'name', 'value', 'trend'];
 
   secondTeamCols: string[] = [
-    'position',
+    'role',
+    'name',
     'value',
     'contract',
     'length',
@@ -51,7 +53,7 @@ export class ToolExchangePage implements ViewWillEnter {
     'remove',
   ];
 
-  finalSecondTeamCols: string[] = ['position', 'value', 'trend'];
+  finalSecondTeamCols: string[] = ['role', 'name', 'value', 'trend'];
 
   constructor(
     private service: ToolService,
@@ -112,14 +114,15 @@ export class ToolExchangePage implements ViewWillEnter {
       this.finalFirstTeamCols = [];
     } else {
       this.firstTeamCols = [
-        'position',
+        'role',
+        'name',
         'value',
         'contract',
         'length',
         'bonus',
         'remove',
       ];
-      this.finalFirstTeamCols = ['position', 'value', 'trend'];
+      this.finalFirstTeamCols = ['role', 'name', 'value', 'trend'];
     }
 
     if (this.secondTeamValues.length == 0) {
@@ -127,14 +130,28 @@ export class ToolExchangePage implements ViewWillEnter {
       this.finalSecondTeamCols = [];
     } else {
       this.secondTeamCols = [
-        'position',
+        'role',
+        'name',
         'value',
         'contract',
         'length',
         'bonus',
         'remove',
       ];
-      this.finalSecondTeamCols = ['position', 'value', 'trend'];
+      this.finalSecondTeamCols = ['role', 'name', 'value', 'trend'];
+    }
+  }
+
+  computeRoleColor(role: string) {
+    switch (role) {
+      case 'P':
+        return '#F8AB29';
+      case 'D':
+        return '#63C623';
+      case 'C':
+        return '#2E6BE6';
+      case 'A':
+        return '#F21A3C';
     }
   }
 

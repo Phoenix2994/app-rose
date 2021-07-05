@@ -9,7 +9,7 @@
     <ion-select
       style="width: 100%; font-weight: bold; font-size: larger"
       (ionChange)="changeFirstTeam($event)"
-      placeholder="Seleziona Squadra 1"
+      placeholder="Seleziona la tua squadra"
       required
     >
       <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
@@ -19,7 +19,7 @@
     <ion-select
       style="width: 100%; font-weight: bold; font-size: larger"
       (ionChange)="changeSecondTeam($event)"
-      placeholder="Seleziona Squadra 2"
+      placeholder="Seleziona la squadra avversaria"
       required
     >
       <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
