@@ -28278,7 +28278,7 @@
     "name": "MANCOCEANNAVA",
     "teamId": 11,
     "finBalance": {
-      "totalBalance": 20.85,
+      "totalBalance": 0,
       "seasons": [
         {
           "season": "2021-22",
@@ -28286,7 +28286,7 @@
           "leagueExpense": 0,
           "paidLeagueExpense": null,
           "annualBalance": 0,
-          "totalBalance": 20.85,
+          "totalBalance": 0,
           "incomes": {
             "awards": null,
             "transfers": null,
@@ -28302,84 +28302,6 @@
             "terminations": null,
             "fines": null,
             "transfers": null,
-            "taxes": 0,
-            "fantabet": 0
-          }
-        },
-        {
-          "season": "2020-21",
-          "teamValue": 150.5,
-          "leagueExpense": 157.60000000000002,
-          "paidLeagueExpense": 104,
-          "annualBalance": -162.10000000000002,
-          "totalBalance": 20.849999999999966,
-          "incomes": {
-            "awards": null,
-            "transfers": null,
-            "refunds": null,
-            "firstIndemnities": 1.7,
-            "secundIndemnities": null
-          },
-          "outings": {
-            "renewals": 40.5,
-            "firstAuction": 109.30000000000001,
-            "secondAuction": null,
-            "displacements": 1.5,
-            "terminations": 3,
-            "fines": 5,
-            "transfers": 4.5,
-            "taxes": 0,
-            "fantabet": null
-          }
-        },
-        {
-          "season": "2019-20",
-          "teamValue": 85.6,
-          "leagueExpense": 74.2,
-          "paidLeagueExpense": 70,
-          "annualBalance": 3.299999999999997,
-          "totalBalance": 182.95,
-          "incomes": {
-            "awards": null,
-            "transfers": 77.5,
-            "refunds": 5.6,
-            "firstIndemnities": 1.5,
-            "secundIndemnities": 0.7
-          },
-          "outings": {
-            "renewals": 39.2,
-            "firstAuction": 38.5,
-            "secondAuction": 2.8000000000000003,
-            "displacements": 0.5,
-            "terminations": 1,
-            "fines": null,
-            "transfers": null,
-            "taxes": 0,
-            "fantabet": 0
-          }
-        },
-        {
-          "season": "2018-19",
-          "teamValue": 113.6,
-          "leagueExpense": 132.59999999999997,
-          "paidLeagueExpense": 110,
-          "annualBalance": 179.65000000000006,
-          "totalBalance": 179.65000000000006,
-          "incomes": {
-            "awards": 312.25,
-            "transfers": 0,
-            "refunds": 0,
-            "firstIndemnities": 0,
-            "secundIndemnities": 0
-          },
-          "outings": {
-            "renewals": 127.19999999999996,
-            "firstAuction": 0,
-            "secondAuction": 0,
-            "displacements": 2.5,
-            "terminations": 5,
-            "fines": 0,
-            "transfers": 0,
             "taxes": 0,
             "fantabet": 0
           }
