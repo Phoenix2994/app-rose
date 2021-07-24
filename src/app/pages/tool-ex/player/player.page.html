@@ -1,29 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Aggiungi giocatore</ion-title>
+    <ion-title>{{playerName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
-    <ion-select
-      style="
-        width: 100%;
-        font-weight: bold;
-        font-size: larger;
-        margin-bottom: 2em;
-      "
-      (ionChange)="changePlayer($event)"
-      placeholder="Seleziona Giocatore"
-    >
-      <ion-select-option
-        *ngFor="let player of players"
-        value="{{player.playerId}}"
-      >
-        <b>{{player.role}}</b> <b>{{player.role ? ' -' : ''}} </b>
-        <b>{{player.name | formatName}}</b>
-      </ion-select-option>
-    </ion-select>
     <div *ngIf="formFlag" class="player">
       <mat-form-field style="display: block; margin: auto" appearance="fill">
         <mat-label>Valore</mat-label>

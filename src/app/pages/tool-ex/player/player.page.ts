@@ -44,19 +44,13 @@ export class PlayerPage implements OnInit {
     this.repaid = 'no';
     this.id = this.route.snapshot.paramMap.get('id');
     const teamId = +this.route.snapshot.paramMap.get('teamId');
-    this.players = [...this.dataLoader.getTeam(teamId).players]
-      .concat(
-        this.dataLoader.getTeam(teamId).borrowed,
-        this.dataLoader.getTeam(teamId).youth
-      )
-      .sort((a, b) => {
-        return a['name'] < b['name'] ? -1 : a['name'] > b['name'] ? 1 : 0;
-      });
-  }
-
-  changePlayer(event) {
+    const playerId = +this.route.snapshot.paramMap.get('playerId');
+    this.players = [...this.dataLoader.getTeam(teamId).players].concat(
+      this.dataLoader.getTeam(teamId).borrowed,
+      this.dataLoader.getTeam(teamId).youth
+    );
     let player = this.players.filter((player) => {
-      return player.playerId.toString() === event.detail.value;
+      return player.playerId === playerId;
     });
     this.formFlag = true;
     this.value = player[0]['value'].toString();

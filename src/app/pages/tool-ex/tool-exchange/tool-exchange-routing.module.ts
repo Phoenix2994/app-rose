@@ -9,9 +9,14 @@ const routes: Routes = [
     component: ToolExchangePage,
   },
   {
-    path: 'team/:teamId/player/:id',
+    path: 'team/:teamId/player/:playerId/:id',
     loadChildren: () =>
       import('../player/player.module').then((m) => m.PlayerPageModule),
+  },
+  {
+    path: 'team/:teamId/:id',
+    loadChildren: () =>
+      import('../team/team.module').then((m) => m.TeamPageModule),
   },
   {
     path: '/select-teams',
