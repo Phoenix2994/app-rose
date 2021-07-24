@@ -25,7 +25,10 @@ export class TeamPage implements OnInit {
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.teamId = +this.route.snapshot.paramMap.get('teamId');
-    this.players = [...this.dataLoader.getTeam(this.teamId).players];
+    this.players = [...this.dataLoader.getTeam(this.teamId).players].concat(
+      this.dataLoader.getTeam(this.teamId).borrowed,
+      this.dataLoader.getTeam(this.teamId).youth
+    );
   }
 
   navigateToPlayer(id: number) {
