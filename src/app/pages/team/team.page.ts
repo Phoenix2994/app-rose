@@ -14,16 +14,27 @@ export class TeamPage implements OnInit {
   teamId: number;
   displayedColumns: string[] = ['role', 'name', 'team', 'quot', 'value'];
   teams: Team[];
+  youthPlayers: IPlayer[] = [];
 
   constructor(private dataLoader: DataLoaderService, private router: Router) {}
 
   ngOnInit() {
     this.teams = this.dataLoader.getTeams();
     this.teamId = this.dataLoader.teamId;
-    this.players = [...this.dataLoader.getTeam(this.teamId).players];
+    this.youthPlayers = [...this.dataLoader.getTeam(this.teamId).youth];
+    this.youthPlayers.forEach((player) => (player.youthFlag = true));
+    this.players = [
+      ...this.dataLoader.getTeam(this.teamId).players.concat(this.youthPlayers),
+    ];
     this.dataLoader.$teamId.subscribe((value: number) => {
       this.teamId = value;
-      this.players = [...this.dataLoader.getTeam(this.teamId).players];
+      this.youthPlayers = [...this.dataLoader.getTeam(this.teamId).youth];
+      this.youthPlayers.forEach((player) => (player.youthFlag = true));
+      this.players = [
+        ...this.dataLoader
+          .getTeam(this.teamId)
+          .players.concat(this.youthPlayers),
+      ];
     });
   }
 
@@ -42,6 +53,7 @@ export class TeamPage implements OnInit {
         return '#F21A3C';
     }
   }
+
   navigateToPlayer(id: number) {
     this.router.navigate(['/tabs/player'], {
       queryParams: {

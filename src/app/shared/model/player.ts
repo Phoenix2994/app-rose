@@ -21,4 +21,7 @@ export interface IPlayer {
   mainFoot: string;
   img: string;
   stats: Stats[];
+
+  //added
+  youthFlag: boolean;
 }
