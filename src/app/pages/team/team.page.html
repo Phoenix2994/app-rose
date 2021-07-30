@@ -57,7 +57,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
-      [ngStyle]="{'background-color': row.youthFlag ? 'rgb(100, 100, 100)' : 'inherit'}"
+      [ngStyle]="{'background-color': row.paymentValue ? 'rgba(85, 107, 47, 0.5)' : (row.youthFlag ? 'rgb(100, 100, 100)' : 'inherit')}"
       (click)="navigateToPlayer(row.playerId)"
       mat-row
       *matRowDef="let row; columns: displayedColumns;"
