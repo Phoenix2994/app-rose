@@ -15,7 +15,7 @@ export class RenewalPage implements OnInit {
   teamId: number;
   displayedColumns: string[] = [
     'select',
-    'role',
+    'img',
     'name',
     'quot',
     'value',

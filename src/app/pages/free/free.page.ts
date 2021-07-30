@@ -12,7 +12,7 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 export class FreePage implements OnInit {
   players: IPlayer[] = [];
   teamId: number;
-  displayedColumns: string[] = ['role', 'name', 'team', 'quot'];
+  displayedColumns: string[] = ['img', 'name', 'team', 'quot'];
   teams: Team[];
 
   roleToFilter: string;
