@@ -62,8 +62,18 @@ export class TeamPage implements OnInit {
         youthFlag: true,
       });
     }
+    let noRole = [
+      ...this.dataLoader
+        .getTeam(this.teamId)
+        .players.filter((p) => p.role === ''),
+    ];
     this.players = [
-      ...gk.concat(def).concat(cc).concat(att).concat(this.youthPlayers),
+      ...gk
+        .concat(def)
+        .concat(cc)
+        .concat(att)
+        .concat(noRole)
+        .concat(this.youthPlayers),
     ];
     this.dataLoader.$teamId.subscribe((value: number) => {
       this.teamId = value;
@@ -108,8 +118,18 @@ export class TeamPage implements OnInit {
           youthFlag: true,
         });
       }
+      let noRole = [
+        ...this.dataLoader
+          .getTeam(this.teamId)
+          .players.filter((p) => p.role === ''),
+      ];
       this.players = [
-        ...gk.concat(def).concat(cc).concat(att).concat(this.youthPlayers),
+        ...gk
+          .concat(def)
+          .concat(cc)
+          .concat(att)
+          .concat(noRole)
+          .concat(this.youthPlayers),
       ];
     });
   }
