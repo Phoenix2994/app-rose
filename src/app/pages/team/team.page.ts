@@ -23,17 +23,93 @@ export class TeamPage implements OnInit {
     this.teamId = this.dataLoader.teamId;
     this.youthPlayers = [...this.dataLoader.getTeam(this.teamId).youth];
     this.youthPlayers.forEach((player) => (player.youthFlag = true));
+    let gk = [
+      ...this.dataLoader
+        .getTeam(this.teamId)
+        .players.filter((p) => p.role === 'P'),
+    ];
+    while (gk.length < 3) {
+      gk.push({ role: 'P' });
+    }
+    let def = [
+      ...this.dataLoader
+        .getTeam(this.teamId)
+        .players.filter((p) => p.role === 'D'),
+    ];
+    while (def.length < 8) {
+      def.push({ role: 'D' });
+    }
+    let cc = [
+      ...this.dataLoader
+        .getTeam(this.teamId)
+        .players.filter((p) => p.role === 'C'),
+    ];
+    while (cc.length < 8) {
+      cc.push({ role: 'C' });
+    }
+    let att = [
+      ...this.dataLoader
+        .getTeam(this.teamId)
+        .players.filter((p) => p.role === 'A'),
+    ];
+    while (att.length < 6) {
+      att.push({ role: 'A' });
+    }
+    while (this.youthPlayers.length < 5) {
+      this.youthPlayers.push({
+        role: 'ND',
+        name: 'Slot Primavera',
+        youthFlag: true,
+      });
+    }
     this.players = [
-      ...this.dataLoader.getTeam(this.teamId).players.concat(this.youthPlayers),
+      ...gk.concat(def).concat(cc).concat(att).concat(this.youthPlayers),
     ];
     this.dataLoader.$teamId.subscribe((value: number) => {
       this.teamId = value;
       this.youthPlayers = [...this.dataLoader.getTeam(this.teamId).youth];
       this.youthPlayers.forEach((player) => (player.youthFlag = true));
-      this.players = [
+      let gk = [
         ...this.dataLoader
           .getTeam(this.teamId)
-          .players.concat(this.youthPlayers),
+          .players.filter((p) => p.role === 'P'),
+      ];
+      while (gk.length < 3) {
+        gk.push({ role: 'P' });
+      }
+      let def = [
+        ...this.dataLoader
+          .getTeam(this.teamId)
+          .players.filter((p) => p.role === 'D'),
+      ];
+      while (def.length < 8) {
+        def.push({ role: 'D' });
+      }
+      let cc = [
+        ...this.dataLoader
+          .getTeam(this.teamId)
+          .players.filter((p) => p.role === 'C'),
+      ];
+      while (cc.length < 8) {
+        cc.push({ role: 'C' });
+      }
+      let att = [
+        ...this.dataLoader
+          .getTeam(this.teamId)
+          .players.filter((p) => p.role === 'A'),
+      ];
+      while (att.length < 6) {
+        att.push({ role: 'A' });
+      }
+      while (this.youthPlayers.length < 5) {
+        this.youthPlayers.push({
+          role: 'ND',
+          name: 'Slot Primavera',
+          youthFlag: true,
+        });
+      }
+      this.players = [
+        ...gk.concat(def).concat(cc).concat(att).concat(this.youthPlayers),
       ];
     });
   }
@@ -55,11 +131,13 @@ export class TeamPage implements OnInit {
   }
 
   navigateToPlayer(id: number) {
-    this.router.navigate(['/tabs/player'], {
-      queryParams: {
-        id,
-        teamId: this.teamId,
-      },
-    });
+    if (id) {
+      this.router.navigate(['/tabs/player'], {
+        queryParams: {
+          id,
+          teamId: this.teamId,
+        },
+      });
+    }
   }
 }
