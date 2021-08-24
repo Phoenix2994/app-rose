@@ -13,7 +13,7 @@
       </ion-row>
       <ion-row><div class="separator"></div></ion-row>
       <ion-row>
-        <ion-col style="margin: auto 0">Stagione:</ion-col>
+        <ion-col style="margin: auto 0"><b>Stagione:</b></ion-col>
         <ion-col
           ><ion-select
             style="padding-left: 0"
@@ -25,7 +25,8 @@
             <ion-select-option
               value="{{award.season}}"
               *ngFor="let award of awards"
-              >Stagione {{award.season}}
+            >
+              Stagione {{award.season}}
             </ion-select-option>
           </ion-select></ion-col
         >
