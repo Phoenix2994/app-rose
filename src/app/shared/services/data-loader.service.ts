@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import AWARDS from '../../../assets/json/awards.json';
 import TEAMS from '../../../assets/json/teams.json';
 import FREE_PLAYERS from '../../../assets/json/free_players.json';
 import { Team } from '../model/team';
@@ -33,5 +34,9 @@ export class DataLoaderService {
 
   getFreePlayers() {
     return this.freePlayers;
+  }
+
+  getAwards() {
+    return AWARDS;
   }
 }

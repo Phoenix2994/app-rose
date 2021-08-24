@@ -37,6 +37,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'tool-values',
+    loadChildren: () =>
+      import('./pages/tool-values/tool-values.module').then(
+        (m) => m.ToolValuesPageModule
+      ),
+  },
+  {
     path: 'tool-exchange',
     loadChildren: () =>
       import('./pages/tool-ex/tool-exchange/tool-exchange.module').then(
@@ -50,6 +57,11 @@ const routes: Routes = [
         (m) => m.SelectTeamsPageModule
       ),
   },
+  {
+    path: 'awards',
+    loadChildren: () => import('./pages/awards/awards.module').then( m => m.AwardsPageModule)
+  },
+
 ];
 @NgModule({
   imports: [
