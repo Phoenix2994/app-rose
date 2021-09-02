@@ -61,7 +61,11 @@ const routes: Routes = [
     path: 'awards',
     loadChildren: () => import('./pages/awards/awards.module').then( m => m.AwardsPageModule)
   },
-
+  {
+    path: 'free',
+    loadChildren: () =>
+      import('./pages/free/free.module').then((m) => m.FreePageModule),
+  },
 ];
 @NgModule({
   imports: [

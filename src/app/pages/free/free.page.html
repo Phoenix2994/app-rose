@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> Svincolati </ion-title>
+    <ion-title> Svincolati</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -45,7 +45,11 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <table mat-table [dataSource]="players" class="mat-elevation-z8 table-image-first-col">
+  <table
+    mat-table
+    [dataSource]="players"
+    class="mat-elevation-z8 table-image-first-col"
+  >
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
@@ -53,11 +57,18 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
         <div
+          *ngIf="element.img"
           style="width: fit-content"
           [ngStyle]="{'background-color': computeRoleColor(element.role)}"
         >
           <img src="{{element.img}}" alt="" />
         </div>
+        <b
+          *ngIf="!element.img"
+          [ngStyle]="{'background-color': computeRoleColor(element.role)}"
+          class="role"
+          >{{element.role}}</b
+        >
       </td>
     </ng-container>
 
