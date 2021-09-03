@@ -2,7 +2,7 @@ export const LOGO_MAP = {
   0: 'presence.png',
   1: 'lei_ce_sta.png',
   2: 'jonica.png',
-  3: 'vitanews.png',
+  3: 'vitanews.jpeg',
   4: 'phoenix.png',
   5: 'cispo.png',
   6: 'granchi.png',
