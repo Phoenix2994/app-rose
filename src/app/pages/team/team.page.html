@@ -81,8 +81,9 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <!--row.paymentValue ? 'rgba(85, 107, 47, 0.5)' : -->
     <tr
-      [ngStyle]="{'background-color': row.paymentValue ? 'rgba(85, 107, 47, 0.5)' : (row.youthFlag ? 'rgb(100, 100, 100)' : 'inherit'), 
+      [ngStyle]="{'background-color': (row.youthFlag ? 'rgb(100, 100, 100)' : 'inherit'), 
       'border-color': !row.playerId ? computeRoleColor(row.role): 'inherit', 
       'border-width': !row.playerId ? '3px': 'inherit', 'border-style': !row.playerId ? 'solid': 'inherit'}"
       (click)="navigateToPlayer(row.playerId)"
