@@ -58,8 +58,7 @@ export class ToolExchangePage implements ViewWillEnter {
   constructor(
     private service: ToolService,
     private route: ActivatedRoute,
-    private dataLoader: DataLoaderService,
-    private toolService: ToolService
+    private dataLoader: DataLoaderService
   ) {}
 
   ionViewWillEnter() {
@@ -67,13 +66,13 @@ export class ToolExchangePage implements ViewWillEnter {
       if (+params.firstTeamId) {
         this.firstTeamId = +params.firstTeamId;
         this.secondTeamId = +params.secondTeamId;
-        this.toolService.firstTeamId = this.firstTeamId;
-        this.toolService.secondTeamId = this.secondTeamId;
+        this.service.firstTeamId = this.firstTeamId;
+        this.service.secondTeamId = this.secondTeamId;
         this.firstTeamName = this.dataLoader.getTeamName(+params.firstTeamId);
         this.secondTeamName = this.dataLoader.getTeamName(+params.secondTeamId);
       } else {
-        this.firstTeamId = this.toolService.firstTeamId;
-        this.secondTeamId = this.toolService.secondTeamId;
+        this.firstTeamId = this.service.firstTeamId;
+        this.secondTeamId = this.service.secondTeamId;
         this.firstTeamName = this.dataLoader.getTeamName(this.firstTeamId);
         this.secondTeamName = this.dataLoader.getTeamName(this.secondTeamId);
       }
