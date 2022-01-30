@@ -1,5 +1,7 @@
 {
   "name": "fantascivolizia",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

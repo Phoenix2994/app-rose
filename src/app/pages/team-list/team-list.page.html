@@ -9,7 +9,8 @@
     <mat-list-item *ngFor="let team of teams">
       <mat-card (click)="navigateToTeam(team.teamId)" class="cnt"
         ><ion-row
-          ><img src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}" alt="" />
+          ><img-loader src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}" spinner="true" useImg></img-loader
+          ><!--<img src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}" alt="" />-->
           <p>{{team?.name}}</p></ion-row
         ></mat-card
       >

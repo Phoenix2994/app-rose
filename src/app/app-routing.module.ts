@@ -35,14 +35,14 @@ const routes: Routes = [
       import('./pages/rule-book/rule-book.module').then(
         (m) => m.RuleBookPageModule
       ),
-  },
+  },/*
   {
     path: 'tool-values',
     loadChildren: () =>
       import('./pages/tool-values/tool-values.module').then(
         (m) => m.ToolValuesPageModule
       ),
-  },
+  },*/
   {
     path: 'tool-exchange',
     loadChildren: () =>

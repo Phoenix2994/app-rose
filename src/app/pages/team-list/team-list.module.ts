@@ -11,6 +11,8 @@ import { TeamListPageRoutingModule } from './team-list-routing.module';
 
 import { TeamListPage } from './team-list.page';
 
+import { IonicImageLoaderModule } from 'ionic-image-loader-v5';
+
 const MAT_MODULES = [MatListModule, MatCardModule];
 
 @NgModule({
@@ -20,6 +22,7 @@ const MAT_MODULES = [MatListModule, MatCardModule];
     IonicModule,
     ...MAT_MODULES,
     TeamListPageRoutingModule,
+    IonicImageLoaderModule
   ],
   declarations: [TeamListPage],
 })
