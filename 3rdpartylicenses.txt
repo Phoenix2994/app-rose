@@ -66,6 +66,15 @@ MIT
 @angular/router
 MIT
 
+@ionic-native/core
+MIT
+
+@ionic-native/file
+MIT
+
+@ionic-native/ionic-webview
+MIT
+
 @ionic/angular
 MIT
 
@@ -95,6 +104,8 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+
+ionic-image-loader-v5
 
 ionic-loader
 
