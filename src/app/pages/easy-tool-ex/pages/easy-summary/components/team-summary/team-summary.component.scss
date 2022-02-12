@@ -1,0 +1,45 @@
+.btn-cnt {
+  right: 0;
+  float: right;
+  position: absolute;
+  top: 1rem;
+  ion-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 2rem;
+  }
+}
+
+.mat-table {
+  background-color: #303030;
+  .role {
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 9px;
+  }
+}
+strong {
+  font-size: 20px;
+  line-height: 26px;
+  margin-right: 20px;
+}
+ion-button {
+  margin: 0 auto 1em auto;
+}
+.big-icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+table {
+  width: 100%;
+  margin: 1em 0;
+}
+
+.tableHidden {
+  width: 0%;
+}
+
+.finalTitle {
+  margin-top: 50px;
+}

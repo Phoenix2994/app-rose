@@ -35,14 +35,14 @@ const routes: Routes = [
       import('./pages/rule-book/rule-book.module').then(
         (m) => m.RuleBookPageModule
       ),
-  },/*
+  } /*
   {
     path: 'tool-values',
     loadChildren: () =>
       import('./pages/tool-values/tool-values.module').then(
         (m) => m.ToolValuesPageModule
       ),
-  },*/
+  },*/,
   {
     path: 'tool-exchange',
     loadChildren: () =>
@@ -59,13 +59,29 @@ const routes: Routes = [
   },
   {
     path: 'awards',
-    loadChildren: () => import('./pages/awards/awards.module').then( m => m.AwardsPageModule)
+    loadChildren: () =>
+      import('./pages/awards/awards.module').then((m) => m.AwardsPageModule),
   },
   {
     path: 'free',
     loadChildren: () =>
       import('./pages/free/free.module').then((m) => m.FreePageModule),
   },
+  {
+    path: 'easy-tool',
+    loadChildren: () =>
+      import('./pages/easy-tool-ex/pages/easy-tool/easy-tool.module').then(
+        (m) => m.EasyToolPageModule
+      ),
+  },  {
+    path: 'easy-team',
+    loadChildren: () => import('./pages/easy-tool-ex/pages/easy-team/easy-team.module').then( m => m.EasyTeamPageModule)
+  },
+  {
+    path: 'easy-player',
+    loadChildren: () => import('./pages/easy-tool-ex/pages/easy-player/easy-player.module').then( m => m.EasyPlayerPageModule)
+  },
+
 ];
 @NgModule({
   imports: [

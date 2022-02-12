@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seleziona squadre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-select
+      style="width: 100%; font-weight: bold; font-size: larger"
+      (ionChange)="changeFirstTeam($event)"
+      placeholder="Seleziona la tua squadra"
+      required
+    >
+      <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
+        <b>{{team.name}}</b>
+      </ion-select-option>
+    </ion-select>
+    <ion-select
+      style="width: 100%; font-weight: bold; font-size: larger"
+      (ionChange)="changeSecondTeam($event)"
+      placeholder="Seleziona la squadra avversaria"
+      required
+    >
+      <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
+        <b>{{team.name}}</b>
+      </ion-select-option>
+    </ion-select>
+    <ion-row>
+      <ion-button
+        [disabled]="!firstTeamId || !secondTeamId"
+        (click)="navigateToTool()"
+        >Prosegui</ion-button
+      >
+    </ion-row>
+  </ion-card>
+</ion-content>
