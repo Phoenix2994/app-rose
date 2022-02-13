@@ -1,18 +1,26 @@
-table {
-  width: 100%;
-
-  img {
-    border-radius: 100%;
-    height: 50px;
+ion-content {
+  --background: none;
+  background-color: white;
+  .filter-cnt {
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
   }
+  table {
+    width: 100%;
 
-  .role {
-    color: #fff;
-    border-radius: 50%;
-    padding: 5px 9px;
-    margin-left: 6px;
-  }
-  .align-right {
-    text-align: right;
+    img {
+      border-radius: 100%;
+      height: 50px;
+    }
+
+    .role {
+      color: #fff;
+      border-radius: 50%;
+      padding: 5px 9px;
+      margin-left: 6px;
+    }
+    .align-right {
+      text-align: right;
+    }
   }
 }

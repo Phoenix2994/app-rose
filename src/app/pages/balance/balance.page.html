@@ -35,7 +35,7 @@
   <ion-card>
     <ion-grid>
       <ion-row>
-        <ion-col><b>Bilancio totale:</b></ion-col>
+        <ion-col class="label"><b>Bilancio totale:</b></ion-col>
         <ion-col
           [ngClass]="{'positiveValue': balance?.totalBalance >= 0, 'negativeValue': !(balance?.totalBalance >= 0)}"
         >
@@ -44,10 +44,10 @@
       </ion-row>
       <ion-row><div class="separator"></div></ion-row>
       <ion-row>
-        <ion-col style="margin: auto 0">Stagione:</ion-col>
+        <ion-col class="label" style="margin: auto 0">Stagione:</ion-col>
         <ion-col
           ><ion-select
-            style="padding-left: 0"
+            style="padding-left: 0; color: rgb(24, 83, 201)"
             (ionChange)="changeSeason($event)"
             value="{{seasonBalance?.season}}"
             placeholder="Scegli una Stagione"
@@ -62,7 +62,7 @@
         >
       </ion-row>
       <ion-row>
-        <ion-col><b>Bilancio stagionale</b></ion-col>
+        <ion-col class="label"><b>Bilancio stagionale</b></ion-col>
         <ion-col
           [ngClass]="{'positiveValue': seasonBalance?.annualBalance >= 0, 'negativeValue': !(seasonBalance?.annualBalance >= 0)}"
           >{{seasonBalance?.annualBalance | currency:'EUR'}}</ion-col
@@ -76,97 +76,107 @@
   <ion-card
     ><ion-grid>
       <ion-row>
-        <ion-col><b>ENTRATE</b></ion-col>
+        <ion-col class="category"><b>ENTRATE</b></ion-col>
         <ion-col></ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>Trasferimenti:</ion-col>
-        <ion-col
+        <ion-col class="label">Trasferimenti:</ion-col>
+        <ion-col class="value"
           >{{(seasonBalance?.incomes?.transfers ?
           seasonBalance?.incomes?.transfers : 0) | currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.incomes?.refunds">
-        <ion-col>Rimborsi:</ion-col>
-        <ion-col>{{seasonBalance?.incomes?.refunds | currency:'EUR'}}</ion-col>
+        <ion-col class="label">Rimborsi:</ion-col>
+        <ion-col class="value"
+          >{{seasonBalance?.incomes?.refunds | currency:'EUR'}}</ion-col
+        >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.incomes?.firstIndemnities">
-        <ion-col>Indennità-settembre:</ion-col>
-        <ion-col
+        <ion-col class="label">Indennità-settembre:</ion-col>
+        <ion-col class="value"
           >{{seasonBalance?.incomes?.firstIndemnities |
           currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.incomes?.secundIndemnities">
-        <ion-col>Indennità-gennaio:</ion-col>
-        <ion-col
+        <ion-col class="label">Indennità-gennaio:</ion-col>
+        <ion-col class="value"
           >{{seasonBalance?.incomes?.secundIndemnities |
           currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.incomes?.awards">
-        <ion-col>Premi:</ion-col>
-        <ion-col>{{seasonBalance?.incomes?.awards | currency:'EUR'}}</ion-col>
+        <ion-col class="label">Premi:</ion-col>
+        <ion-col class="value"
+          >{{seasonBalance?.incomes?.awards | currency:'EUR'}}</ion-col
+        >
       </ion-row>
     </ion-grid>
   </ion-card>
   <ion-card
     ><ion-grid>
       <ion-row>
-        <ion-col><b>USCITE</b></ion-col>
+        <ion-col class="category"><b>USCITE</b></ion-col>
         <ion-col></ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>Rinnovi:</ion-col>
-        <ion-col
+        <ion-col class="label">Rinnovi:</ion-col>
+        <ion-col class="value"
           >{{( seasonBalance?.outings?.renewals ?
           seasonBalance?.outings?.renewals : 0)| currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.outings?.firstAuction">
-        <ion-col>Asta-settembre:</ion-col>
-        <ion-col
+        <ion-col class="label">Asta-settembre:</ion-col>
+        <ion-col class="value"
           >{{seasonBalance?.outings?.firstAuction | currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.outings?.secondAuction">
-        <ion-col>Asta-gennaio:</ion-col>
-        <ion-col
+        <ion-col class="label">Asta-gennaio:</ion-col>
+        <ion-col class="value"
           >{{seasonBalance?.outings?.secondAuction | currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row>
-        <ion-col>Trasferimenti:</ion-col>
-        <ion-col
+        <ion-col class="label">Trasferimenti:</ion-col>
+        <ion-col class="value"
           >{{( seasonBalance?.outings?.transfers ?
           seasonBalance?.outings?.transfers : 0) | currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row>
-        <ion-col>Spostamenti:</ion-col>
-        <ion-col
+        <ion-col class="label">Spostamenti:</ion-col>
+        <ion-col class="value"
           >{{( seasonBalance?.outings?.displacements ?
           seasonBalance?.outings?.displacements : 0) | currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.outings?.terminations">
-        <ion-col>Rescissioni:</ion-col>
-        <ion-col
+        <ion-col class="label">Rescissioni:</ion-col>
+        <ion-col class="value"
           >{{(seasonBalance?.outings?.terminations ?
           seasonBalance?.outings?.terminations : 0)| currency:'EUR'}}</ion-col
         >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.outings?.taxes">
-        <ion-col>Tasse:</ion-col>
-        <ion-col>{{seasonBalance?.outings?.taxes | currency:'EUR'}}</ion-col>
+        <ion-col class="label">Tasse:</ion-col>
+        <ion-col class="value"
+          >{{seasonBalance?.outings?.taxes | currency:'EUR'}}</ion-col
+        >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.outings?.fines">
-        <ion-col>Penali:</ion-col>
-        <ion-col>{{seasonBalance?.outings?.fines | currency:'EUR'}}</ion-col>
+        <ion-col class="label">Penali:</ion-col>
+        <ion-col class="value"
+          >{{seasonBalance?.outings?.fines | currency:'EUR'}}</ion-col
+        >
       </ion-row>
       <ion-row *ngIf="seasonBalance?.outings?.fantabet">
-        <ion-col>Fantaschedine:</ion-col>
-        <ion-col>{{seasonBalance?.outings?.fantabet | currency:'EUR'}}</ion-col>
+        <ion-col class="label">Fantaschedine:</ion-col>
+        <ion-col class="value"
+          >{{seasonBalance?.outings?.fantabet | currency:'EUR'}}</ion-col
+        >
       </ion-row>
     </ion-grid>
   </ion-card>

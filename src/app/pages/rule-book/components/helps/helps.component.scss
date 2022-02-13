@@ -4,28 +4,38 @@ ion-grid {
   border-style: hidden;
 
   ion-col:first-child {
-    border: 1px solid black;
+    border: 1px solid var(--ion-color-primary);
     border-bottom: 0;
     background-color: var(--ion-color-primary);
     font-weight: bold;
     color: white;
   }
-  ion-col:last-child {
-    border: 1px solid black;
+  ion-row:not(:first-child) ion-col:last-child {
+    border: 1px solid var(--ion-color-primary);
     border-bottom: 0;
   }
 
   ion-col:not(:first-child):not(:last-child) {
-    border-top: 1px solid black;
+    border-top: 1px solid var(--ion-color-primary);
   }
 
   ion-row:last-child {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--ion-color-primary);
   }
+
   ion-row:first-child {
     background-color: var(--ion-color-primary);
     font-weight: bold;
-    color: white;
+    color: var(--ion-color-primary-contrast);
+    ion-col:not(:last-child) {
+      border-right: 1px solid var(--ion-color-primary-contrast);
+    }
+  }
+
+  ion-row:not(:first-child) {
+    ion-col:first-child {
+      border-top-color: var(--ion-color-primary-contrast);
+    }
   }
 }
 
