@@ -34,7 +34,7 @@
         </div>
         <b
           *ngIf="!element.img"
-          [ngStyle]="{'background-color': computeRoleColor(element.role)}"
+          [ngStyle]="{'background-color': computeRoleColor(element.role), 'color': (element.youthFlag && element.role === 'ND') ? 'rgb(24,83,201)': '#f7f7f7'}"
           class="role"
           >{{element.role}}</b
         >
@@ -81,11 +81,12 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-   <!--row.paymentValue ? 'rgba(85, 107, 47, 0.5)' : -->
+    <!--row.paymentValue ? 'rgba(85, 107, 47, 0.5)' : -->
     <tr
-      [ngStyle]="{'background-color': (row.youthFlag ? 'rgb(100, 100, 100)' : 'inherit'), 
-      'border-color': !row.playerId ? computeRoleColor(row.role): 'inherit', 
-      'border-width': !row.playerId ? '3px': 'inherit', 'border-style': !row.playerId ? 'solid': 'inherit'}"
+      [ngStyle]="{'background-color': row.youthFlag ? '#f7f7f7' : 'inherit', 
+      'color': row.youthFlag ? 'rgb(28,83,201)' : 'inherit',
+      'border-bottom-color': row.youthFlag ? 'rgb(24,83,201)' : 'rgba(255,255,255,.12)', 
+      'border-bottom-width': !row.playerId ? '3px': 'inherit', 'border-bottom-style': !row.playerId ? 'solid': 'inherit'}"
       (click)="navigateToPlayer(row.playerId)"
       mat-row
       *matRowDef="let row; columns: displayedColumns;"

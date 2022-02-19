@@ -1,10 +1,11 @@
 .cnt-balance {
   --background: none;
-  background-color: white;
+  background-color: var(--ion-color-primary);
 
   ion-card {
-    background-color: #424242;
-    color: white;
+    background-color: var(--ion-color-primary-contrast);
+    color: var(--ion-color-primary);
+    font-weight: bold;
 
     ion-button {
       margin: 1em auto;
@@ -18,30 +19,33 @@ ion-grid.ion-margin {
   border-style: hidden;
 
   ion-col:not(:first-child):not(:last-child) {
-    border: 1px solid black;
+    border-top: 1px solid var(--ion-color-primary);
+    border-right: 1px solid var(--ion-color-primary);
   }
 
   ion-col:first-child {
-    border: 1px solid black;
+    border: 1px solid var(--ion-color-primary);
     border-bottom: 0;
     border-right: 0;
+    border-top-color: var(--ion-color-primary-contrast);
     background-color: var(--ion-color-primary);
+
     font-weight: bold;
     color: white;
   }
   ion-col:last-child {
-    border-right: 1px solid black;
-    border-top: 1px solid black;
+    border-right: 1px solid var(--ion-color-primary);
+    border-top: 1px solid var(--ion-color-primary);
   }
 
   ion-row:last-child {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--ion-color-primary);
   }
 }
 
 .separator {
   height: 1px;
-  background-color: white;
+  background-color: var(--ion-color-primary-contrast);
   width: 100%;
   margin: auto;
 }

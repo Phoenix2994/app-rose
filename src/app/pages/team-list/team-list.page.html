@@ -5,15 +5,20 @@
 </ion-header>
 
 <ion-content class="cnt-home">
-  <mat-list>
-    <mat-list-item *ngFor="let team of teams">
-      <mat-card (click)="navigateToTeam(team.teamId)" class="cnt"
-        ><ion-row
-          ><img-loader src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}" [spinner]="true" [useImg]="true"></img-loader
-          ><!--<img src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}" alt="" />-->
-          <p>{{team?.name}}</p></ion-row
-        ></mat-card
-      >
-    </mat-list-item>
-  </mat-list>
+  <div style="padding: 1rem">
+    <mat-card
+      *ngFor="let team of teams"
+      (click)="navigateToTeam(team.teamId)"
+      class="cnt"
+      ><ion-row
+        ><img-loader
+          src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}"
+          [spinner]="true"
+          [useImg]="true"
+        ></img-loader
+        ><!--<img src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}" alt="" />-->
+        <p>{{team?.name}}</p></ion-row
+      ></mat-card
+    >
+  </div>
 </ion-content>
