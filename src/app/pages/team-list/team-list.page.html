@@ -10,14 +10,14 @@
       *ngFor="let team of teams"
       (click)="navigateToTeam(team.teamId)"
       class="cnt"
-      ><ion-row
+      ><div
         ><img-loader
           src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}"
           [spinner]="true"
           [useImg]="true"
         ></img-loader
         ><!--<img src="assets/img/new_piccio/{{logoMap[team.teamId-1]}}" alt="" />-->
-        <p>{{team?.name}}</p></ion-row
+        <p>{{team?.name}}</p></div
       ></mat-card
     >
   </div>
