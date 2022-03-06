@@ -9,25 +9,27 @@ ion-card {
 
 .goalKeeperBackG {
   --background: none;
-  background-color: #f8ab29;
+  // background-color: #f8ab29;
+  background-color: var(--ion-color-primary-contrast);
+
 }
 
 .defenderBackG {
   --background: none;
-
-  background-color: #63c623;
+  background-color: var(--ion-color-primary-contrast);
+  // background-color: #63c623;
 }
 
 .midfielderBackG {
   --background: none;
-
-  background-color: #2e6be6;
+  background-color: var(--ion-color-primary-contrast);
+  // background-color: #2e6be6;
 }
 
 .attackBackG {
   --background: none;
-
-  background-color: #f21a3c;
+  background-color: var(--ion-color-primary-contrast);
+  // background-color: #f21a3c;
 }
 
 .b-fg {
