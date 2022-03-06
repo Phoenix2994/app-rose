@@ -1,17 +1,4 @@
-.btn-cnt {
-  right: 0;
-  float: right;
-  position: absolute;
-  top: 1rem;
-  ion-icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    margin-right: 2rem;
-  }
-}
-
 .mat-table {
-  background-color: #303030;
   .role {
     color: #fff;
     border-radius: 50%;
@@ -25,10 +12,15 @@ strong {
 }
 ion-button {
   margin: 0 auto 1em auto;
+  --background: var(--ion-color-primary-contrast);
+  --background-focused: var(--ion-color-primary-contrast);
+  --color: var(--ion-color-primary);
+  --color-activated: var(--ion-color-primary);
 }
 .big-icon {
   height: 3rem;
   width: 3rem;
+  color: var(--ion-color-primary);
 }
 
 table {

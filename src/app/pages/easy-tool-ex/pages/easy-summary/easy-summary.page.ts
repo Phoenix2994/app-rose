@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ViewWillEnter } from '@ionic/angular';
-import { Player } from 'src/app/pages/tool-ex/model/player';
 import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
+import { Player } from '../../model/player';
 import { EasyToolService } from '../../services/easy-tool.service';
 import { TeamSummaryComponent } from './components/team-summary/team-summary.component';
 
@@ -35,7 +35,7 @@ export class EasySummaryPage implements ViewWillEnter {
     'role',
     'name',
     'value',
-    'contract',
+    'finalValue',
     'length',
     'bonus',
     'remove',
@@ -47,7 +47,7 @@ export class EasySummaryPage implements ViewWillEnter {
     'role',
     'name',
     'value',
-    'contract',
+    'finalValue',
     'length',
     'bonus',
     'remove',
@@ -104,10 +104,10 @@ export class EasySummaryPage implements ViewWillEnter {
       this.secondTeamValues.push(player);
     });
     if (this.firstTeam.length != 0) {
-      this.teamComponentChildren.first.finalTeamTable.renderRows();
+      // this.teamComponentChildren.first.finalTeamTable.renderRows();
     }
     if (this.secondTeam.length != 0) {
-      this.teamComponentChildren.last.finalTeamTable.renderRows();
+      // this.teamComponentChildren.last.finalTeamTable.renderRows();
     }
     if (this.firstTeamValues.length == 0) {
       this.firstTeamCols = [];
@@ -117,7 +117,7 @@ export class EasySummaryPage implements ViewWillEnter {
         'role',
         'name',
         'value',
-        'contract',
+        'finalValue',
         'length',
         'bonus',
         'remove',
@@ -133,7 +133,7 @@ export class EasySummaryPage implements ViewWillEnter {
         'role',
         'name',
         'value',
-        'contract',
+        'finalValue',
         'length',
         'bonus',
         'remove',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
+import { BonusList, BONUS_LIST } from '../../enum/bonus-list';
 import { Bonus } from '../../model/bonus';
 import { Player } from '../../model/player';
 import { EasyToolService } from '../../services/easy-tool.service';
@@ -26,11 +27,7 @@ export class EasyPlayerPage implements OnInit {
   contractLength: string;
   repaidValue: string;
   repaid: string;
-  bonus: string;
-  bonus1Number: string;
-  bonus1Reward: string;
-  bonus2Number: string;
-  bonus2Reward: string;
+  bonus: string[] = [];
 
   players: any[];
   playerName: string;
@@ -38,8 +35,25 @@ export class EasyPlayerPage implements OnInit {
 
   formFlag = false;
 
+  BONUS_LIST = BONUS_LIST;
+
+  bonusListValue = {};
+  bonusList: { key: string; value: string }[];
+
   ngOnInit() {
-    this.bonus = '0';
+    this.bonusList = Object.keys(BonusList).map((key) => ({
+      key,
+      value: BonusList[key],
+    }));
+    Object.keys(BonusList).forEach((key) => {
+      const bonus = BONUS_LIST.find((b) => b.bonusType === BonusList[key]);
+      this.bonusListValue[key] = {
+        reward: '0',
+      };
+      if (bonus.targetFlag) {
+        this.bonusListValue[key]['targetFlag'] = true;
+      }
+    });
     this.contractType = 'def';
     this.repaid = 'no';
     this.id = this.route.snapshot.paramMap.get('id');
@@ -60,29 +74,23 @@ export class EasyPlayerPage implements OnInit {
     this.role = player[0]['role'];
   }
 
+  get bonusListEnum() {
+    return BonusList;
+  }
+
   save() {
     let bonus = [];
-    if (this.bonus === '1') {
+    this.bonus.forEach((b) =>
       bonus.push(
         new Bonus(
-          +this.bonus1Number.replace(/,/g, '.'),
-          +this.bonus1Reward.replace(/,/g, '.')
+          b,
+          +this.bonusListValue[b]['reward'],
+          this.bonusListValue[b]['targetFlag'],
+          +this.bonusListValue[b]['target'],
+          false
         )
-      );
-    } else if (this.bonus === '2') {
-      bonus.push(
-        new Bonus(
-          +this.bonus1Number.replace(/,/g, '.'),
-          +this.bonus1Reward.replace(/,/g, '.')
-        )
-      );
-      bonus.push(
-        new Bonus(
-          +this.bonus2Number.replace(/,/g, '.'),
-          +this.bonus2Reward.replace(/,/g, '.')
-        )
-      );
-    }
+      )
+    );
     this.service.save(
       +this.id,
       new Player(
@@ -102,5 +110,4 @@ export class EasyPlayerPage implements OnInit {
     );
     this.router.navigate(['easy-tool/easy-summary']);
   }
-
 }

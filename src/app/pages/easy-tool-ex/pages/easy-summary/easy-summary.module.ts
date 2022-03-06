@@ -13,11 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { ContractTypeMapPipe } from 'src/app/pages/tool-ex/pipes/contract-type-map.pipe';
-import { BonusComputePipe } from 'src/app/pages/tool-ex/pipes/bonus-compute.pipe';
-import { RoundPipe } from 'src/app/pages/tool-ex/pipes/round.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TeamSummaryComponent } from './components/team-summary/team-summary.component';
+import { ContractTypeMapPipe } from '../../pipes/contract-type-map.pipe';
+import { BonusComputePipe } from '../../pipes/bonus-compute.pipe';
+import { RoundPipe } from '../../pipes/round.pipe';
 
 const MAT_MODULES = [
   MatFormFieldModule,

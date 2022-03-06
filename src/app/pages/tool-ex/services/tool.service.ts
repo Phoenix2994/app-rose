@@ -54,8 +54,6 @@ export class ToolService {
     this.team2.quot = 0;
     this.team1.finalQuot = 0;
     this.team2.finalQuot = 0;
-    console.log(this.team1.players);
-    console.log(this.team2.players);
 
     this.team1.players.forEach((player) => {
       if (
@@ -117,8 +115,6 @@ export class ToolService {
 
     this.team1.finalPlayers = JSON.parse(JSON.stringify(this.team1.players));
     this.team2.finalPlayers = JSON.parse(JSON.stringify(this.team2.players));
-
-    console.log(this.team1.value - this.team2.value);
 
     this.team1.bonus = this.team1.bonusList.reduce((a, b) => a + b, 0);
     this.team2.bonus = this.team2.bonusList.reduce((a, b) => a + b, 0);

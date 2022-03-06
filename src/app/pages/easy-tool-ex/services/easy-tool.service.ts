@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Player } from '../model/player';
 import { Subject } from 'rxjs';
 import { Team } from '../model/team';
+import { Bonus } from '../model/bonus';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,17 @@ export class EasyToolService {
     } else {
       this.team2.players.push(player);
     }
+  }
+
+  getBonus(bonus: Bonus): number {
+    if (bonus.targetResult) {
+      if (bonus.targetResult === true) {
+        return bonus.reward;
+      } else {
+        bonus.reward * bonus.targetResult;
+      }
+    }
+    return 0;
   }
 
   initValues() {
@@ -77,7 +89,7 @@ export class EasyToolService {
       if (player.bonusList) {
         let playerBonus = 0;
         player.bonusList.forEach((bonus) => {
-          playerBonus += bonus.events * bonus.reward;
+          playerBonus += this.getBonus(bonus);
         });
         this.team1.bonusList.push(playerBonus);
       }
@@ -106,7 +118,7 @@ export class EasyToolService {
       if (player.bonusList) {
         let playerBonus = 0;
         player.bonusList.forEach((bonus) => {
-          playerBonus += bonus.events * bonus.reward;
+          playerBonus += this.getBonus(bonus);
         });
         this.team2.bonusList.push(playerBonus);
       }

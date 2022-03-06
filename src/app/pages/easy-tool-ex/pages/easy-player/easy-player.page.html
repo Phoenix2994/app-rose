@@ -7,7 +7,7 @@
 <ion-content>
   <ion-card>
     <div *ngIf="formFlag" class="player">
-      <mat-form-field style="display: block; margin: auto" appearance="fill">
+      <!--<mat-form-field style="display: block; margin: auto" appearance="fill">
         <mat-label>Valore</mat-label>
         <input [(ngModel)]="value" matInput />
       </mat-form-field>
@@ -18,8 +18,11 @@
       <mat-form-field appearance="fill">
         <mat-label>Quotazione finale</mat-label>
         <input [(ngModel)]="finalQuot" matInput />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
+      </mat-form-field>-->
+      <mat-form-field
+        [ngStyle]="{'margin': contractType === 'def' ? 'auto' : '0 10px 0 0'}"
+        appearance="fill"
+      >
         <mat-label>Contratto</mat-label>
         <mat-select [(ngModel)]="contractType">
           <mat-option value="def">Definitivo</mat-option>
@@ -56,28 +59,33 @@
       </mat-form-field>
       <mat-form-field style="display: block; margin: auto" appearance="fill">
         <mat-label>Bonus</mat-label>
-        <mat-select [(ngModel)]="bonus">
-          <mat-option value="0">0</mat-option>
-          <mat-option value="1">1</mat-option>
-          <mat-option value="2">2</mat-option>
+        <mat-select [(ngModel)]="bonus" multiple>
+          <mat-option *ngFor="let b of bonusList" [value]="b.key"
+            >{{b.value}}</mat-option
+          >
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="bonus != '0'" appearance="fill">
-        <mat-label>No. Eventi Bonus 1</mat-label>
-        <input [(ngModel)]="bonus1Number" matInput />
-      </mat-form-field>
-      <mat-form-field *ngIf="bonus != '0'" appearance="fill">
-        <mat-label>Ricompensa Bonus 1</mat-label>
-        <input [(ngModel)]="bonus1Reward" matInput />
-      </mat-form-field>
-      <mat-form-field *ngIf="bonus == '2'" appearance="fill">
-        <mat-label>No. Eventi Bonus 2</mat-label>
-        <input [(ngModel)]="bonus2Number" matInput />
-      </mat-form-field>
-      <mat-form-field *ngIf="bonus == '2'" appearance="fill">
-        <mat-label>Ricompensa Bonus 2</mat-label>
-        <input [(ngModel)]="bonus2Reward" matInput />
-      </mat-form-field>
+      <ng-container *ngFor="let b of bonus">
+        <mat-form-field
+          [ngStyle]="{'display': (!bonusListValue[b]['targetFlag'] ? 'block' : 'inline-block'),
+          'margin': (!bonusListValue[b]['targetFlag'] ? 'auto' : '0 10px 0 0')}"
+          appearance="fill"
+        >
+          <mat-label>{{bonusListEnum[b]}}</mat-label>
+          <input [(ngModel)]="bonusListValue[b]['reward']" matInput />
+        </mat-form-field>
+        <mat-form-field
+          *ngIf="bonusListValue[b]['targetFlag']"
+          [ngStyle]="{'display': (!bonusListValue[b]['targetFlag'] ? 'block' : 'inline-block'),
+          'margin': (!bonusListValue[b]['targetFlag'] ? 'auto' : '0 10px 0 0')}"
+          appearance="fill"
+        >
+          <mat-label>Ricompensa</mat-label>
+          <input
+            [(ngModel)]="bonusListValue[b]['target']"
+            matInput
+          /> </mat-form-field
+      ></ng-container>
       <ion-row>
         <ion-button (click)="save()">Salva</ion-button>
       </ion-row>
