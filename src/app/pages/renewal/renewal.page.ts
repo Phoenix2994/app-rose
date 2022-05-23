@@ -38,7 +38,7 @@ export class RenewalPage implements OnInit {
     this.teamId = this.dataLoader.teamId;
     this.finalRenewal =
       this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-        return season.season === '2021-22';
+        return season.season === '2022-23';
       }).outings.renewals || 0;
     this.players = [...this.dataLoader.getTeam(this.teamId).players]
       .concat(
@@ -49,7 +49,7 @@ export class RenewalPage implements OnInit {
         return (
           (player.contractType === 'TITOLO DEFINITIVO' ||
             player.contractType === 'PRESTITO (OBBLIGO)') &&
-          !player.paymentValue
+          player.paymentValue
         );
       });
     this.dataLoader.$teamId.subscribe((value: number) => {
@@ -59,7 +59,7 @@ export class RenewalPage implements OnInit {
         this.dataLoader
           .getTeam(this.teamId)
           .finBalance.seasons.find((season) => {
-            return season.season === '2021-22';
+            return season.season === '2022-23';
           }).outings.renewals || 0;
       this.players = [...this.dataLoader.getTeam(this.teamId).players]
         .concat(
@@ -107,7 +107,7 @@ export class RenewalPage implements OnInit {
       : this.players.forEach((row) => this.selection.select(row));
     this.finalRenewal =
       this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-        return season.season === '2021-22';
+        return season.season === '2022-23';
       }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;
@@ -118,7 +118,7 @@ export class RenewalPage implements OnInit {
     this.selection.toggle(player);
     this.finalRenewal =
       this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-        return season.season === '2021-22';
+        return season.season === '2022-23';
       }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;

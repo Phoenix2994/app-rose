@@ -23,12 +23,12 @@ export class BalancePage implements OnInit {
     this.teamId = this.dataLoader.teamId;
     this.balance = this.dataLoader.getTeam(this.teamId).finBalance;
     this.seasons = [...this.balance.seasons];
-    this.seasonBalance = this.seasons[0];
+    this.seasonBalance = this.seasons[this.seasons.length - 1];
     this.dataLoader.$teamId.subscribe((value: number) => {
       this.teamId = value;
       this.balance = this.dataLoader.getTeam(this.teamId).finBalance;
       this.seasons = [...this.balance.seasons];
-      this.seasonBalance = this.seasons[0];
+      this.seasonBalance = this.seasons[this.seasons.length - 1];
     });
   }
 
