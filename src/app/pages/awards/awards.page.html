@@ -166,49 +166,11 @@
         <ion-col>Limite (%)</ion-col>
         <ion-col>Limite</ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col
-          >{{seasonAward?.fines[0].aliquot * 100 | number: '1.0-2'}} %</ion-col
-        >
-        <ion-col
-          >{{seasonAward?.fines[0].percLimit * 100 | number: '1.0-2'}}
-          %</ion-col
-        >
+      <ion-row *ngFor="let fine of seasonAward?.fines">
+        <ion-col>{{fine.aliquot * 100 | number: '1.0-2'}} %</ion-col>
+        <ion-col>{{fine.percLimit * 100 | number: '1.0-2'}} %</ion-col>
 
-        <ion-col>{{seasonAward?.fines[0].moneyLimit| currency:'EUR'}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col
-          >{{seasonAward?.fines[1].aliquot * 100 | number: '1.0-2'}} %</ion-col
-        >
-        <ion-col
-          >{{seasonAward?.fines[1].percLimit * 100 | number: '1.0-2'}}
-          %</ion-col
-        >
-
-        <ion-col>{{seasonAward?.fines[1].moneyLimit| currency:'EUR'}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col
-          >{{seasonAward?.fines[2].aliquot * 100 | number: '1.0-2'}} %</ion-col
-        >
-        <ion-col
-          >{{seasonAward?.fines[2].percLimit * 100 | number: '1.0-2'}}
-          %</ion-col
-        >
-
-        <ion-col>{{seasonAward?.fines[2].moneyLimit| currency:'EUR'}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col
-          >{{seasonAward?.fines[3].aliquot * 100 | number: '1.0-2'}} %</ion-col
-        >
-        <ion-col
-          >{{seasonAward?.fines[3].percLimit * 100 | number: '1.0-2'}}
-          %</ion-col
-        >
-
-        <ion-col>{{seasonAward?.fines[3].moneyLimit| currency:'EUR'}}</ion-col>
+        <ion-col>{{fine.moneyLimit| currency:'EUR'}}</ion-col>
       </ion-row>
     </ion-grid>
   </ion-card>
