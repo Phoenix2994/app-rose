@@ -93,7 +93,7 @@
         >
         <ion-col>{{seasonAward?.awards[7].value | currency:'EUR'}}</ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row *ngIf="seasonAward?.awards[8]?.perc">
         <ion-col>Nono</ion-col>
         <ion-col
           >{{seasonAward?.awards[8].perc * 100 | number: '1.0-2'}} %</ion-col
