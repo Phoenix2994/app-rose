@@ -49,7 +49,7 @@ export class RenewalPage implements OnInit {
         return (
           (player.contractType === 'TITOLO DEFINITIVO' ||
             player.contractType === 'PRESTITO (OBBLIGO)') &&
-          player.paymentValue
+          !player.paymentValue
         );
       });
     this.dataLoader.$teamId.subscribe((value: number) => {
@@ -70,7 +70,7 @@ export class RenewalPage implements OnInit {
           return (
             (player.contractType === 'TITOLO DEFINITIVO' ||
               player.contractType === 'PRESTITO (OBBLIGO)') &&
-            player.paymentValue
+            !player.paymentValue
           );
         });
     });
