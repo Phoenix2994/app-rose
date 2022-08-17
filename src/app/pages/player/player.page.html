@@ -181,7 +181,7 @@
         </ion-row>
       </ion-grid>
     </ion-card>
-    <ion-card>
+    <ion-card *ngIf="player?.stats?.length !== 0">
       <ion-grid>
         <ion-row>
           <ion-col style="padding-top: 1em">
