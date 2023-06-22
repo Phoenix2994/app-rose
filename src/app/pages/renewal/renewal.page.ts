@@ -48,8 +48,8 @@ export class RenewalPage implements OnInit {
       .filter((player) => {
         return (
           (player.contractType === 'TITOLO DEFINITIVO' ||
-            player.contractType === 'PRESTITO (OBBLIGO)') &&
-          !player.paymentValue
+            player.contractType === 'PRESTITO (OBBLIGO)') 
+            // && !player.paymentValue
         );
       });
     this.dataLoader.$teamId.subscribe((value: number) => {
@@ -69,8 +69,8 @@ export class RenewalPage implements OnInit {
         .filter((player) => {
           return (
             (player.contractType === 'TITOLO DEFINITIVO' ||
-              player.contractType === 'PRESTITO (OBBLIGO)') &&
-            !player.paymentValue
+              player.contractType === 'PRESTITO (OBBLIGO)') 
+              // && !player.paymentValue
           );
         });
     });
