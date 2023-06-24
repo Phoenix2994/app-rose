@@ -36,10 +36,10 @@ export class RenewalPage implements OnInit {
   ngOnInit() {
     this.teams = this.dataLoader.getTeams();
     this.teamId = this.dataLoader.teamId;
-    this.finalRenewal =
-      this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+    this.finalRenewal = 0;
+      /*this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
         return season.season === '2022-23';
-      }).outings.renewals || 0;
+      }).outings.renewals || 0;*/
     this.players = [...this.dataLoader.getTeam(this.teamId).players]
       .concat(
         this.dataLoader.getTeam(this.teamId).borrowed,
@@ -55,12 +55,12 @@ export class RenewalPage implements OnInit {
     this.dataLoader.$teamId.subscribe((value: number) => {
       this.selection.clear();
       this.teamId = value;
-      this.finalRenewal =
-        this.dataLoader
+      this.finalRenewal = 0;
+        /*this.dataLoader
           .getTeam(this.teamId)
           .finBalance.seasons.find((season) => {
             return season.season === '2022-23';
-          }).outings.renewals || 0;
+          }).outings.renewals || 0;*/
       this.players = [...this.dataLoader.getTeam(this.teamId).players]
         .concat(
           this.dataLoader.getTeam(this.teamId).borrowed,
@@ -105,10 +105,10 @@ export class RenewalPage implements OnInit {
     this.isAllSelected()
       ? this.selection.clear()
       : this.players.forEach((row) => this.selection.select(row));
-    this.finalRenewal =
-      this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+    this.finalRenewal =0;
+      /*this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
         return season.season === '2022-23';
-      }).outings.renewals || 0;
+      }).outings.renewals || 0;*/
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;
     });
@@ -116,10 +116,10 @@ export class RenewalPage implements OnInit {
 
   toggleSelect(player) {
     this.selection.toggle(player);
-    this.finalRenewal =
-      this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+    this.finalRenewal = 0;
+      /*this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
         return season.season === '2022-23';
-      }).outings.renewals || 0;
+      }).outings.renewals || 0;*/
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;
     });
