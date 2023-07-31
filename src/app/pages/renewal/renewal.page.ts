@@ -31,15 +31,15 @@ export class RenewalPage implements OnInit {
   );
   finalRenewal: number = 0;
 
-  constructor(private dataLoader: DataLoaderService) {}
+  constructor(private dataLoader: DataLoaderService) { }
 
   ngOnInit() {
     this.teams = this.dataLoader.getTeams();
     this.teamId = this.dataLoader.teamId;
     this.finalRenewal = 0;
-      /*this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-        return season.season === '2022-23';
-      }).outings.renewals || 0;*/
+    this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+      return season.season === '2023-24';
+    }).outings.renewals || 0;
     this.players = [...this.dataLoader.getTeam(this.teamId).players]
       .concat(
         this.dataLoader.getTeam(this.teamId).borrowed,
@@ -48,19 +48,19 @@ export class RenewalPage implements OnInit {
       .filter((player) => {
         return (
           (player.contractType === 'TITOLO DEFINITIVO' ||
-            player.contractType === 'PRESTITO (OBBLIGO)') 
-            // && !player.paymentValue
+            player.contractType === 'PRESTITO (OBBLIGO)')
+          // && !player.paymentValue
         );
       });
     this.dataLoader.$teamId.subscribe((value: number) => {
       this.selection.clear();
       this.teamId = value;
       this.finalRenewal = 0;
-        /*this.dataLoader
-          .getTeam(this.teamId)
-          .finBalance.seasons.find((season) => {
-            return season.season === '2022-23';
-          }).outings.renewals || 0;*/
+      this.dataLoader
+        .getTeam(this.teamId)
+        .finBalance.seasons.find((season) => {
+          return season.season === '2023-24';
+        }).outings.renewals || 0;
       this.players = [...this.dataLoader.getTeam(this.teamId).players]
         .concat(
           this.dataLoader.getTeam(this.teamId).borrowed,
@@ -69,8 +69,8 @@ export class RenewalPage implements OnInit {
         .filter((player) => {
           return (
             (player.contractType === 'TITOLO DEFINITIVO' ||
-              player.contractType === 'PRESTITO (OBBLIGO)') 
-              // && !player.paymentValue
+              player.contractType === 'PRESTITO (OBBLIGO)')
+            // && !player.paymentValue
           );
         });
     });
@@ -105,10 +105,10 @@ export class RenewalPage implements OnInit {
     this.isAllSelected()
       ? this.selection.clear()
       : this.players.forEach((row) => this.selection.select(row));
-    this.finalRenewal =0;
-      /*this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-        return season.season === '2022-23';
-      }).outings.renewals || 0;*/
+    this.finalRenewal = 0;
+    this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+      return season.season === '2023-24';
+    }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;
     });
@@ -117,9 +117,9 @@ export class RenewalPage implements OnInit {
   toggleSelect(player) {
     this.selection.toggle(player);
     this.finalRenewal = 0;
-      /*this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-        return season.season === '2022-23';
-      }).outings.renewals || 0;*/
+    this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+      return season.season === '2023-24';
+    }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;
     });
