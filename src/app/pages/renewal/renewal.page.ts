@@ -36,8 +36,7 @@ export class RenewalPage implements OnInit {
   ngOnInit() {
     this.teams = this.dataLoader.getTeams();
     this.teamId = this.dataLoader.teamId;
-    this.finalRenewal = 0;
-    this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+    this.finalRenewal = this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
       return season.season === '2023-24';
     }).outings.renewals || 0;
     this.players = [...this.dataLoader.getTeam(this.teamId).players]
@@ -49,14 +48,13 @@ export class RenewalPage implements OnInit {
         return (
           (player.contractType === 'TITOLO DEFINITIVO' ||
             player.contractType === 'PRESTITO (OBBLIGO)')
-          // && !player.paymentValue
+          && !player.paymentValue
         );
       });
     this.dataLoader.$teamId.subscribe((value: number) => {
       this.selection.clear();
       this.teamId = value;
-      this.finalRenewal = 0;
-      this.dataLoader
+      this.finalRenewal = this.dataLoader
         .getTeam(this.teamId)
         .finBalance.seasons.find((season) => {
           return season.season === '2023-24';
@@ -70,7 +68,7 @@ export class RenewalPage implements OnInit {
           return (
             (player.contractType === 'TITOLO DEFINITIVO' ||
               player.contractType === 'PRESTITO (OBBLIGO)')
-            // && !player.paymentValue
+            && !player.paymentValue
           );
         });
     });
@@ -105,8 +103,7 @@ export class RenewalPage implements OnInit {
     this.isAllSelected()
       ? this.selection.clear()
       : this.players.forEach((row) => this.selection.select(row));
-    this.finalRenewal = 0;
-    this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+    this.finalRenewal = this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
       return season.season === '2023-24';
     }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
@@ -116,8 +113,7 @@ export class RenewalPage implements OnInit {
 
   toggleSelect(player) {
     this.selection.toggle(player);
-    this.finalRenewal = 0;
-    this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
+    this.finalRenewal = this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
       return season.season === '2023-24';
     }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
