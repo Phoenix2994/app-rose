@@ -14,93 +14,66 @@
         <ion-col><b>Montepremi totale:</b></ion-col>
         <ion-col> {{totalAwards | currency:'EUR'}} </ion-col>
       </ion-row>
-      <ion-row><div class="separator"></div></ion-row>
+      <ion-row>
+        <div class="separator"></div>
+      </ion-row>
       <ion-row>
         <ion-col style="margin: auto 0"><b>Stagione:</b></ion-col>
-        <ion-col
-          ><ion-select
-            style="padding-left: 0"
-            (ionChange)="changeSeason($event)"
-            value="{{seasonAward?.season}}"
-            placeholder="Scegli una Stagione"
-            class="px-0 py-0"
-          >
-            <ion-select-option
-              value="{{award.season}}"
-              *ngFor="let award of awards"
-            >
+        <ion-col><ion-select style="padding-left: 0" (ionChange)="changeSeason($event)" value="{{seasonAward?.season}}"
+            placeholder="Scegli una Stagione" class="px-0 py-0">
+            <ion-select-option value="{{award.season}}" *ngFor="let award of awards">
               Stagione {{award.season}}
             </ion-select-option>
-          </ion-select></ion-col
-        >
+          </ion-select></ion-col>
       </ion-row>
-    </ion-grid></ion-card
-  >
+    </ion-grid></ion-card>
   <ion-card>
     <h5>Campionato</h5>
 
     <ion-grid class="ion-margin">
       <ion-row>
         <ion-col>Primo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[0].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[0].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[0].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Secondo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[1].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[1].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[1].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Terzo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[2].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[2].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[2].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Quarto</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[3].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[3].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[3].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Quinto</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[4].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[4].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[4].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Sesto</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[5].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[5].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[5].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Settimo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[6].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[6].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[6].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Ottavo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[7].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[7].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[7].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row *ngIf="seasonAward?.awards[8]?.perc">
         <ion-col>Nono</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[8].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[8].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[8].value | currency:'EUR'}}</ion-col>
       </ion-row>
     </ion-grid>
@@ -109,55 +82,59 @@
     <ion-grid class="ion-margin">
       <ion-row>
         <ion-col>Primo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[9].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[9].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[9].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Secondo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[10].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[10].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[10].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Terzo</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[11].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[11].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[11].value | currency:'EUR'}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col>Quarto</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[12].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[12].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[12].value | currency:'EUR'}}</ion-col>
       </ion-row>
     </ion-grid>
 
-    <h5>Fantapunti</h5>
+    <ng-container *ngIf="seasonAward?.awards[13]?.position === '1c2'">
+    <h5>Coppa II </h5>
     <ion-grid class="ion-margin">
-      <ion-row *ngIf="seasonAward?.awards[14]">
-        <ion-col>Miglior punteggio totale</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[13].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+      <ion-row>
+        <ion-col>Primo</ion-col>
+        <ion-col>{{seasonAward?.awards[13].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[13].value | currency:'EUR'}}</ion-col>
       </ion-row>
-      <ion-row *ngIf="seasonAward?.awards[14]">
-        <ion-col>Miglior punteggio in giornata</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[14].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
-        <ion-col>{{seasonAward?.awards[14].value | currency:'EUR'}}</ion-col>
-      </ion-row>
+    </ion-grid>
+    </ng-container>
+
+    <h5>Fantapunti</h5>
+    <ion-grid class="ion-margin">
+      <ng-container *ngIf="seasonAward?.awards[13]?.position === '1c2'">
+        <ion-row *ngIf="seasonAward?.awards[14]">
+          <ion-col>Miglior punteggio in giornata</ion-col>
+          <ion-col>{{seasonAward?.awards[14].perc * 100 | number: '1.0-2'}} %</ion-col>
+          <ion-col>{{seasonAward?.awards[14].value | currency:'EUR'}}</ion-col>
+        </ion-row></ng-container>
+      <ng-container *ngIf="seasonAward?.awards[13]?.position !== '1c2'">
+        <ion-row *ngIf="seasonAward?.awards[14]">
+          <ion-col>Miglior punteggio totale</ion-col>
+          <ion-col>{{seasonAward?.awards[13].perc * 100 | number: '1.0-2'}} %</ion-col>
+          <ion-col>{{seasonAward?.awards[13].value | currency:'EUR'}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="seasonAward?.awards[14]">
+          <ion-col>Miglior punteggio in giornata</ion-col>
+          <ion-col>{{seasonAward?.awards[14].perc * 100 | number: '1.0-2'}} %</ion-col>
+          <ion-col>{{seasonAward?.awards[14].value | currency:'EUR'}}</ion-col>
+        </ion-row></ng-container>
       <ion-row *ngIf="!seasonAward?.awards[14]">
         <ion-col>Miglior punteggio in giornata</ion-col>
-        <ion-col
-          >{{seasonAward?.awards[13].perc * 100 | number: '1.0-2'}} %</ion-col
-        >
+        <ion-col>{{seasonAward?.awards[13].perc * 100 | number: '1.0-2'}} %</ion-col>
         <ion-col>{{seasonAward?.awards[13].value | currency:'EUR'}}</ion-col>
       </ion-row>
     </ion-grid>
