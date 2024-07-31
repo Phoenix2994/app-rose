@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'cutLongName',
 })
 export class CutLongName implements PipeTransform {
-  transform(value: string, ...args: unknown[]): string {
-    return (value && value.length) > 20 ? value.slice(0, 20) + '..' : value;
+  transform(value: string, maxLength: number): string {
+    return (value && value.length) > maxLength ? value.slice(0, maxLength) + '..' : value;
   }
 }

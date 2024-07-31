@@ -12,13 +12,14 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 export class FreePage implements OnInit {
   players: IPlayer[] = [];
   teamId: number;
-  displayedColumns: string[] = ['img', 'name', 'team', 'quot'];
+  displayedColumns: string[] = ['img', 'name', 'mantraRole', 'team', 'quot'];
   teams: Team[];
+  mantraRoles = ['POR', 'DC', 'DD', 'DS', 'M', 'C', 'E', 'W', 'T', 'A', 'PC'];
 
   roleToFilter: string;
   nameToFilter: string = '';
 
-  constructor(private dataLoader: DataLoaderService, private router: Router) {}
+  constructor(private dataLoader: DataLoaderService, private router: Router) { }
 
   ngOnInit() {
     this.players = [...this.dataLoader.getFreePlayers()];
@@ -48,11 +49,11 @@ export class FreePage implements OnInit {
     this.players = [...this.dataLoader.getFreePlayers()].filter(
       (player: IPlayer) => {
         return (
-          (this.roleToFilter ? player.role === this.roleToFilter : true) &&
+          (this.roleToFilter ? player?.mantraRole?.toUpperCase()?.includes(this.roleToFilter) : true) &&
           (this.nameToFilter
             ? player.name
-                .toLowerCase()
-                .includes(this.nameToFilter.toLowerCase())
+              .toLowerCase()
+              .includes(this.nameToFilter.toLowerCase())
             : true)
         );
       }

@@ -50,7 +50,7 @@
             <ion-col>
               <ion-row
                 ><p class="p-fg">
-                  {{player?.role ? player?.role : 'ND'}}
+                  {{player?.mantraRole ? player?.mantraRole : 'ND'}}
                 </p></ion-row
               >
               <ion-row> <strong class="b-fg"> Ruolo </strong></ion-row>
@@ -184,7 +184,8 @@
         </ion-row>
       </ion-grid>
     </ion-card>
-    <ion-card *ngIf="player?.stats?.length !== 0">
+    <!--
+    <ion-card *ngIf="player?.stats?.length !== 0 && false">
       <ion-grid>
         <ion-row>
           <ion-col style="padding-top: 1em">
@@ -258,75 +259,8 @@
               <ion-row> <strong class="b-fg"> MFV </strong></ion-row>
             </ion-col>
           </ion-row>
-          <!--
-          <ion-row>
-            <ion-col>
-              <strong> Partite giocate </strong>
-            </ion-col>
-            <ion-col> {{stats?.pg}} </ion-col>
-          </ion-row>
-          <ion-row *ngIf="!(player?.roleDetail)?.includes('porta')">
-            <ion-col>
-              <strong> Gol </strong>
-            </ion-col>
-            <ion-col> {{stats?.gf}} </ion-col>
-          </ion-row>
-          <ion-row *ngIf="!(player?.roleDetail)?.includes('porta')">
-            <ion-col>
-              <strong> Assist </strong>
-            </ion-col>
-            <ion-col> {{stats?.ass}} </ion-col>
-          </ion-row>
-          <ion-row *ngIf="(player?.roleDetail)?.includes('porta')">
-            <ion-col>
-              <strong> Gol subiti </strong>
-            </ion-col>
-            <ion-col> {{stats?.gs}} </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <strong> Autogol </strong>
-            </ion-col>
-            <ion-col> {{stats?.aut}} </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <strong> Cartellini gialli </strong>
-            </ion-col>
-            <ion-col> {{stats?.amm}} </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <strong> Cartellini rossi </strong>
-            </ion-col>
-            <ion-col> {{stats?.esp}} </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <strong> Mediavoto </strong>
-            </ion-col>
-            <ion-col> {{stats?.mv | round}} </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <strong> Percentile Mediavoto </strong>
-            </ion-col>
-            <ion-col> {{stats?.mvt * 100| round}}%</ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <strong> FantaMediavoto </strong>
-            </ion-col>
-            <ion-col> {{stats?.mf | round}} </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <strong> Percentile FantaMediavoto </strong>
-            </ion-col>
-            <ion-col> {{stats?.mft * 100 | round}}%</ion-col>
-          </ion-row>-->
         </div>
       </ion-grid>
-    </ion-card>
+    </ion-card>-->
   </div>
 </ion-content>

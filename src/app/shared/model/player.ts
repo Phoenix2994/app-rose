@@ -14,6 +14,7 @@ export interface IPlayer {
   value?: number;
   team?: string;
   role?: string;
+  mantraRole?: string;
   birthdate?: string;
   height?: string;
   nationality?: string;

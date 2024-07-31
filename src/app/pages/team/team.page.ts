@@ -12,7 +12,7 @@ import { DataLoaderService } from 'src/app/shared/services/data-loader.service';
 export class TeamPage implements OnInit {
   players: IPlayer[] = [];
   teamId: number;
-  displayedColumns: string[] = ['img', 'name', 'team', 'quot', 'value'];
+  displayedColumns: string[] = ['img', 'name', 'mantraRole', 'team', 'quot', 'value'];
   teams: Team[];
   youthPlayers: IPlayer[] = [];
 

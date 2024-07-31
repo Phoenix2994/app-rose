@@ -18,7 +18,7 @@
 <ion-content [fullscreen]="true">
   <ion-card>
     <mat-tab-group mat-stretch-tabs>
-      <mat-tab label="{{firstTeamName | cutLongName}}">
+      <mat-tab label="{{firstTeamName | cutLongName : 20}}">
         <ion-card class="container">
           <mat-form-field style="margin-top: 1rem" appearance="fill">
             <mat-label>Conguaglio</mat-label>
@@ -156,7 +156,7 @@
           <tr mat-row *matRowDef="let row; columns: finalFirstTeamCols;"></tr>
         </table>
       </mat-tab>
-      <mat-tab label="{{secondTeamName | cutLongName}}">
+      <mat-tab label="{{secondTeamName | cutLongName : 20}}">
         <ion-card class="container">
           <mat-form-field style="margin-top: 1rem" appearance="fill">
             <mat-label>Conguaglio</mat-label>

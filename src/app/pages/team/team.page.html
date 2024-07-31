@@ -1,11 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-select
-      style="width: 100%; font-weight: bold; font-size: larger"
-      (ionChange)="changeTeam($event)"
-      value="{{teamId}}"
-      required
-    >
+    <ion-select style="width: 100%; font-weight: bold; font-size: larger" (ionChange)="changeTeam($event)"
+      value="{{teamId}}" required>
       <ion-select-option *ngFor="let team of teams" value="{{team.teamId}}">
         <b>{{team.name}}</b>
       </ion-select-option>
@@ -14,53 +10,46 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <table
-    mat-table
-    [dataSource]="players"
-    class="mat-elevation-z8 table-image-first-col"
-  >
+  <table mat-table [dataSource]="players" class="mat-elevation-z8 table-image-first-col">
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
     <ng-container matColumnDef="img">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <div
-          *ngIf="element.img"
-          style="width: fit-content"
-          [ngStyle]="{'background-color': computeRoleColor(element.role)}"
-        >
+        <div *ngIf="element.img" style="width: fit-content"
+          [ngStyle]="{'background-color': computeRoleColor(element.role)}">
           <img src="{{element?.img}}" alt="" />
         </div>
-        <b
-          *ngIf="!element.img"
+        <b *ngIf="!element.img"
           [ngStyle]="{'background-color': computeRoleColor(element.role), 'color': (element.youthFlag && element.role === 'ND') ? 'rgb(24,83,201)': '#f7f7f7'}"
-          class="role"
-          >{{element.role}}</b
-        >
+          class="role">{{element.role}}</b>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="role">
       <th mat-header-cell *matHeaderCellDef>Ruolo</th>
       <td mat-cell *matCellDef="let element">
-        <b
-          [ngStyle]="{'background-color': computeRoleColor(element.role)}"
-          class="role"
-          >{{element?.role}}</b
-        >
+        <b [ngStyle]="{'background-color': computeRoleColor(element.role)}" class="role">{{element?.role}}</b>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="mantraRole">
+      <th mat-header-cell *matHeaderCellDef>Ruolo</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.mantraRole}}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Nome</th>
       <td mat-cell *matCellDef="let element">
-        <span>{{element?.name | formatName}}</span>
+        <span>{{element?.name | formatName | cutLongName : 10}}</span>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="team">
-      <th mat-header-cell *matHeaderCellDef>Squadra</th>
+      <th mat-header-cell *matHeaderCellDef>Squad</th>
       <td style="text-decoration: underline" mat-cell *matCellDef="let element">
         {{element?.team | shortTeam}}
       </td>
@@ -87,9 +76,6 @@
       'color': row.youthFlag ? 'rgb(28,83,201)' : 'inherit',
       'border-bottom-color': row.youthFlag ? 'rgb(24,83,201)' : 'rgba(255,255,255,.12)', 
       'border-bottom-width': !row.playerId ? '3px': 'inherit', 'border-bottom-style': !row.playerId ? 'solid': 'inherit'}"
-      (click)="navigateToPlayer(row.playerId)"
-      mat-row
-      *matRowDef="let row; columns: displayedColumns;"
-    ></tr>
+      (click)="navigateToPlayer(row.playerId)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </ion-content>
