@@ -55,7 +55,7 @@ export class TeamPage implements OnInit {
     while (att.length < 6) {
       att.push({ role: 'A' });
     }
-    while (this.youthPlayers.length < 5) {
+    while (this.youthPlayers.length < 6) {
       this.youthPlayers.push({
         role: 'ND',
         name: 'Slot Primavera',
@@ -111,7 +111,7 @@ export class TeamPage implements OnInit {
       while (att.length < 6) {
         att.push({ role: 'A' });
       }
-      while (this.youthPlayers.length < 5) {
+      while (this.youthPlayers.length < 6) {
         this.youthPlayers.push({
           role: 'ND',
           name: 'Slot Primavera',
