@@ -37,7 +37,7 @@ export class RenewalPage implements OnInit {
     this.teams = this.dataLoader.getTeams();
     this.teamId = this.dataLoader.teamId;
     this.finalRenewal = this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-      return season.season === '2024-25';
+      return season.season === '2025-26';
     }).outings.renewals || 0;
     this.players = [...this.dataLoader.getTeam(this.teamId).players]
       .concat(
@@ -57,7 +57,7 @@ export class RenewalPage implements OnInit {
       this.finalRenewal = this.dataLoader
         .getTeam(this.teamId)
         .finBalance.seasons.find((season) => {
-          return season.season === '2024-25';
+          return season.season === '2025-26';
         }).outings.renewals || 0;
       this.players = [...this.dataLoader.getTeam(this.teamId).players]
         .concat(
@@ -104,7 +104,7 @@ export class RenewalPage implements OnInit {
       ? this.selection.clear()
       : this.players.forEach((row) => this.selection.select(row));
     this.finalRenewal = this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-      return season.season === '2024-25';
+      return season.season === '2025-26';
     }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;
@@ -114,7 +114,7 @@ export class RenewalPage implements OnInit {
   toggleSelect(player) {
     this.selection.toggle(player);
     this.finalRenewal = this.dataLoader.getTeam(this.teamId).finBalance.seasons.find((season) => {
-      return season.season === '2024-25';
+      return season.season === '2025-26';
     }).outings.renewals || 0;
     this.selection.selected.forEach((player) => {
       this.finalRenewal += player.nextPaymentValue;
